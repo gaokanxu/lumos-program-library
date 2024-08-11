@@ -1,0 +1,31 @@
+[package]
+name = "lpl-token"
+version = "6.0.0"
+description = "Lumos Program Library Token"
+authors = ["Gao Kanxu <gaokanxu@gmail.com>"]
+repository = "https://github.com/gaokanxu/lumos"
+license = "Apache-2.0"
+edition = "2021"
+exclude = ["js/**"]
+
+[dependencies]
+arrayref = "0.3.8"
+bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck", features = ["derive"] }
+num-derive = "0.4.2"
+num-traits = { version = "0.2.19", features = ["i128"] }
+num_enum = "0.7.3"
+thiserror = "1.0.63"
+lazy_static = "1.5.0"
+proptest = "1.5.0"
+serial_test = "3.1.1"
+
+
+lumos-program = { path = "../../../lumos/curve25519-dalek/curve25519-dalek"}
+lumos-sdk = { workspace = true }
+#lumos-program-test = { workspace = true } 
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
