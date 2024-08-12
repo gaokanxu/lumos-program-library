@@ -9,13 +9,14 @@ edition = "2021"
 publish = false
 
 [dependencies]
-honggfuzz = { workspace = true }
-arbitrary = { workspace = true }
+honggfuzz = "0.5"
+arbitrary = "1.3.2"
 
-lumos-program = { workspace = true }
-lpl-math = { workspace = true }
-lpl-token = { workspace = true }
-lpl-token-swap = { workspace = true }
+lumos-program = { path = "../../../../lumos/sdk/program" }
+
+lpl-math = { path = "../../../libraries/math" }
+lpl-token = { path = "../../../token/program" }
+lpl-token-swap = { path = "../../../token-swap/program" }
 
 [[bin]]
 name = "token-swap-instructions"

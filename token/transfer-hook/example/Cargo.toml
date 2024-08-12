@@ -14,16 +14,15 @@ test-sbf = []
 forbid-additional-mints = []
 
 [dependencies]
-arrayref = { workspace = true }
+arrayref = "0.3.8"
 
-lumos-program = { workspace = true }
-#lumos-program-test = { workspace = true }
-lumos-sdk = { workspace = true }
+lumos-program = { path = "../../../../lumos/sdk/program" }
+lumos-sdk = { path = "../../../../lumos/sdk" }
 
-lpl-tlv-account-resolution = { workspace = true }
-lpl-token-2022 = { workspace = true }
-lpl-transfer-hook-interface = { workspace = true }
-lpl-type-length-value = { workspace = true }
+lpl-tlv-account-resolution = { path = "../../../libraries/tlv-account-resolution" }
+lpl-token-2022 = { path = "../../../token/program-2022" }
+lpl-transfer-hook-interface = { path = "../../../token/transfer-hook/interface" }
+lpl-type-length-value = { path = "../../../libraries/type-length-value" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

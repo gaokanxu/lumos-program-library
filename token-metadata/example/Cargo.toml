@@ -8,17 +8,16 @@ license = "Apache-2.0"
 edition = "2021"
 
 [dependencies]
-test-case = { workspace = true }
+test-case = "3.3.1"
 
-lumos-program = { workspace = true }
-#lumos-program-test = { workspace = true }
-lumos-sdk = { workspace = true }
+lumos-program = { path = "../../../lumos/sdk/program" }
+lumos-sdk = { path = "../../../lumos/sdk" }
 
-lpl-token-2022 = { workspace = true }
-lpl-token-metadata-interface = { workspace = true }
-lpl-type-length-value = { workspace = true }
-lpl-pod = { workspace = true }
-lpl-token-client = { workspace = true }
+lpl-token-2022 = { path = "../../token/program-2022" }
+lpl-token-metadata-interface = { path = "../../token-metadata/interface" }
+lpl-type-length-value = { path = "../../libraries/type-length-value" }
+lpl-pod = { path = "../../libraries/pod" }
+lpl-token-client = { path = "../../token/client" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

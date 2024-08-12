@@ -8,13 +8,15 @@ license = "Apache-2.0"
 edition = "2018"
 
 [dependencies]
-bytemuck = { workspace = true }
-num_enum = { workspace = true }
-lumos-program = { workspace = true }
-lpl-associated-token-account = { workspace = true }
-lpl-token = { workspace = true }
-lpl-token-2022 = { workspace = true }
-thiserror = { workspace = true }
+bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck", features = ["derive"] }
+num_enum = "0.7.2"
+thiserror = "1.0.57"
+
+lumos-program = { path = "../../../lumos/sdk/program" }
+lpl-associated-token-account = { path = "../../associated-token-account/program" }
+lpl-token = { path = "../../token/program" }
+lpl-token-2022 = { path = "../../token/program-2022" }
+
 
 [lib]
 crate-type = ["cdylib", "lib"]

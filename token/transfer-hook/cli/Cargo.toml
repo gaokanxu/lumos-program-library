@@ -9,30 +9,31 @@ repository = "https://github.com/gaokanxu/lumos"
 version = "0.2.0"
 
 [dependencies]
-clap = { workspace = true }
-futures-util = { workspace = true }
-strum = { workspace = true }
-strum_macros = { workspace = true }
-serde = { workspace = true }
-serde_json = { workspace = true }
-serde_yaml = { workspace = true }
+clap = { version = "4.5.15", features = ["cargo"] }
+futures-util = "0.3.29"
+strum = "0.24"
+strum_macros = "0.24"
+serde = { version = "1.0.204", features = ["derive"] }
+serde_json = "1.0.114"
+serde_yaml = "0.9.32"
 
-tokio = { workspace = true }
+tokio = { git = "https://github.com/gaokanxu/tokio.git", branch = "main", package = "tokio" }
 
-lumos-clap-v3-utils = { workspace = true }
-lumos-cli-config = { workspace = true }
-lumos-client = { workspace = true }
-lumos-logger = { workspace = true }
-lumos-remote-wallet = { workspace = true }
-lumos-sdk = { workspace = true }
-lpl-tlv-account-resolution = { workspace = true }
-lpl-transfer-hook-interface = { workspace = true }
+lumos-clap-v3-utils = { path = "../../../../lumos/clap-v3-utils" }
+lumos-cli-config = { path = "../../../../lumos/cli-config" }
+lumos-client = { path = "../../../../lumos/client" }
+lumos-logger = { path = "../../../../lumos/logger" }
+lumos-remote-wallet = { path = "../../../../lumos/remote-wallet" }
+lumos-sdk = { path = "../../../../lumos/sdk" }
+
+lpl-tlv-account-resolution = { path = "../../../libraries/tlv-account-resolution" }
+lpl-transfer-hook-interface = { path = "../../../token/transfer-hook/interface" }
 
 [dev-dependencies]
-lumos-test-validator = { workspace = true }
-lpl-token-2022 = { workspace = true }
-lpl-token-client = { workspace = true }
-lpl-transfer-hook-example = { workspace = true }
+lumos-test-validator = { path = "../../../../lumos/test-validator" }
+lpl-token-2022 = { path = "../../../token/program-2022" }
+lpl-token-client = { path = "../../../token/client" }
+lpl-transfer-hook-example = { path = "../../../token/transfer-hook/example" }
 
 [[bin]]
 name = "lpl-transfer-hook"

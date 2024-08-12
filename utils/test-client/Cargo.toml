@@ -8,7 +8,7 @@ edition = "2021"
 # Used to ensure that SPL programs are buildable by external clients
 
 [dependencies]
-lumos-sdk = { workspace = true }
-lpl-memo = { workspace = true }
-lpl-token = { workspace = true }
-lpl-token-swap = { workspace = true }
+lumos-sdk = { path = "../../../lumos/sdk" }
+lpl-memo = { path = "../../memo/program" }
+lpl-token = { path = "../../token/program" }
+lpl-token-swap = { path = "../../token-swap/program" }

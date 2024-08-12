@@ -27,8 +27,6 @@ bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", 
 security-txt = { git = "https://github.com/gaokanxu/security-txt.git", branch = "main", package = "security-txt" }
 
 lumos-program = { path = "../../../lumos/sdk/program" }
-#lumos-transaction-status = { workspace = true }
-#lumos-program-test = { workspace = true }
 lumos-sdk = { path = "../../../lumos/sdk" }
 lumos-zk-token-sdk = { path = "../../../lumos/zk-token-sdk" }
 

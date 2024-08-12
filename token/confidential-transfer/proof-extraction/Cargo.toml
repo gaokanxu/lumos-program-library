@@ -8,11 +8,11 @@ license = "Apache-2.0"
 edition = "2021"
 
 [dependencies]
-thiserror = { workspace = true }
+thiserror = "1.0.57"
 
-bytemuck = { workspace = true }
-curve25519-dalek = { workspace = true }
-lumos-zk-token-sdk = { workspace = true }
+bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck", features = ["derive"] }
+curve25519-dalek = { path = "../../../../curve25519-dalek/curve25519-dalek", features = ["alloc", "precomputed-tables", "zeroize"] }
+lumos-zk-token-sdk = { path = "../../../../lumos/zk-token-sdk" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

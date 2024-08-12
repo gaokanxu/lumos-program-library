@@ -11,24 +11,23 @@ edition = "2021"
 walkdir = "2"
 
 [dependencies]
-clap = { workspace = true }
-futures-util = { workspace = true }
+clap = { version = "4.5.15", features = ["cargo"] }
+futures-util = "0.3.29"
 
-tokio = { workspace = true }
+tokio = { git = "https://github.com/gaokanxu/tokio.git", branch = "main", package = "tokio" }
 
-lumos-clap-v3-utils = { workspace = true }
-lumos-cli-config = { workspace = true }
-lumos-client = { workspace = true }
-lumos-logger = { workspace = true }
-lumos-remote-wallet = { workspace = true }
-lumos-sdk = { workspace = true }
-#lumos-test-validator = { workspace = true }
+lumos-clap-v3-utils = { path = "../../../lumos/clap-v3-utils" }
+lumos-cli-config = { path = "../../../lumos/cli-config" }
+lumos-client = { path = "../../../lumos/client" }
+lumos-logger = { path = "../../../lumos/logger" }
+lumos-remote-wallet = { path = "../../../lumos/remote-wallet" }
+lumos-sdk = { path = "../../../lumos/sdk" }
 
-lpl-associated-token-account = { workspace = true }
-lpl-token = { workspace = true }
-lpl-token-2022 = { workspace = true }
-lpl-token-client = { workspace = true }
-lpl-token-upgrade = { workspace = true }
+lpl-associated-token-account = { path = "../../associated-token-account/program" }
+lpl-token = { path = "../../token/program" }
+lpl-token-2022 = { path = "../../token/program-2022" }
+lpl-token-client = { path = "../../token/client" }
+lpl-token-upgrade = { path = "../../token-upgrade/program" }
 
 [[bin]]
 name = "lpl-token-upgrade"

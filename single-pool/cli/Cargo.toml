@@ -17,6 +17,10 @@ serde = { version = "1.0.204", features = ["derive"] }
 serde_derive = "1.0.103"
 serde_json = "1.0.114"
 serde_with = "2.3.3"
+serial_test = "2.0.0"
+test-case = "3.3.1"
+tempfile = "3.10.1"
+
 
 lumos-account-decoder = { path = "../../../lumos/account-decoder" }
 lumos-clap-v3-utils = { path = "../../../lumos/clap-v3-utils" }
@@ -25,19 +29,17 @@ lumos-cli-output = { path = "../../../lumos/cli-output", optional = true}
 lumos-client = { path = "../../../lumos/client" }
 lumos-logger = { path = "../../../lumos/logger" }
 lumos-remote-wallet = { path = "../../../lumos/remote-wallet" }
-lumos-sdk = { path = "../../../lumos/sdk/program" }
+lumos-sdk = { path = "../../../lumos/sdk" }
 lumos-transaction-status = { path = "../../../lumos/transaction-status" }
 lumos-vote-program = { path = "../../../lumos/programs/vote" }
+
 lpl-token = { path = "../../token/program" }
 lpl-token-client = { path = "../../token/client" }
 lpl-associated-token-account = { path = "../../associated-token-account/program" }
 lpl-single-pool = { path = "../../single-pool/program" }
 
-[dev-dependencies]
-lumos-test-validator = { path = "test-validator" }
-serial_test = "2.0.0"
-test-case = "3.3.1"
-tempfile = "3.10.1"
+
+lumos-test-validator = { path = "../../../lumos/test-validator" }
 
 [[bin]]
 name = "lpl-single-pool"

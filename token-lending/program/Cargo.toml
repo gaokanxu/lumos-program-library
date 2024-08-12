@@ -8,19 +8,18 @@ license = "Apache-2.0"
 edition = "2021"
 
 [dependencies]
-arrayref = { workspace = true }
-bytemuck = { workspace = true }
-num-derive = { workspace = true }
-num-traits = { workspace = true }
-thiserror = { workspace = true }
-uint = { workspace = true }
-assert_matches = { workspace = true }
-proptest = { workspace = true }
+arrayref = "0.3.8"
+bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck", features = ["derive"] }
+num-derive = "0.4"
+num-traits = { version = "0.2", features = ["i128"] }
+thiserror = "1.0.57"
+uint = "0.9.5"
+assert_matches = "1.5.0"
+proptest = "1.4"
 
-lumos-program = { workspace = true }
-#lumos-program-test = { workspace = true }
-lumos-sdk = { workspace = true }
-lpl-token = { workspace = true }
+lumos-program = { path = "../../../lumos/sdk/program" }
+lumos-sdk = { path = "../../../lumos/sdk" }
+lpl-token = { path = "../../token/program" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

@@ -12,40 +12,41 @@ version = "4.0.0"
 walkdir = "2"
 
 [dependencies]
-base64 = "0.22.1"
-clap = "2.33.3"
+base64 = "0.22.0"
+clap = { version = "4.5.15", features = ["cargo"] }
 console = "0.15.8"
-futures = "0.3"
-serde = "1.0.204"
+futures = "0.3.30"
+serde = { version = "1.0.204", features = ["derive"] }
 serde_derive = "1.0.103"
-serde_json = "1.0.120"
+serde_json = "1.0.114"
+strum = "0.24"
+strum_macros = "0.24"
+tokio = { git = "https://github.com/gaokanxu/tokio.git", branch = "main", package = "tokio" }
 
-lumos-account-decoder = { workspace = true }
-lumos-clap-utils = { workspace = true }
-lumos-cli-config = { workspace = true }
-lumos-cli-output = { workspace = true, optional = true }
-lumos-client = { workspace = true }
-lumos-logger = { workspace = true }
-lumos-remote-wallet = { workspace = true }
-lumos-sdk = { workspace = true }
-lumos-transaction-status = { workspace = true }
-lpl-token = { workspace = true }
-lpl-token-2022 = { workspace = true }
-lpl-token-client = { workspace = true }
-lpl-token-metadata-interface = { workspace = true }
-lpl-token-group-interface = { workspace = true }
-lpl-associated-token-account = { workspace = true }
-lpl-memo = { workspace = true }
+lumos-account-decoder = { path = "../../../lumos/account-decoder" }
+lumos-clap-utils = { path = "../../../lumos/clap-utils" }
+lumos-cli-config = { path = "../../../lumos/cli-config" }
+lumos-cli-output = { path = "../../../lumos/cli-output", optional = true}
+lumos-client = { path = "../../../lumos/client" }
+lumos-logger = { path = "../../../lumos/logger" }
+lumos-remote-wallet = { path = "../../../lumos/remote-wallet" }
+lumos-sdk = { path = "../../../lumos/sdk" }
+lumos-transaction-status = { path = "../../../lumos/transaction-status" }
 
-strum = "0.26"
-strum_macros = "0.26"
-tokio = "1.39"
+lpl-token = { path = "../../token/program" }
+lpl-token-2022 = { path = "../../token/program-2022" }
+lpl-token-client = { path = "../../token/client" }
+lpl-token-metadata-interface = { path = "../../token-metadata/interface" }
+lpl-token-group-interface = { path = "../../token-group/interface" }
+lpl-associated-token-account = { path = "../../associated-token-account/program" }
+lpl-memo = { path = "../../memo/program" }
+
 
 [dev-dependencies]
-lumos-test-validator = { workspace = true }
-assert_cmd = "2.0.14"
+lumos-test-validator = { path = "../../../lumos/test-validator" }
+assert_cmd = "2.0"
 libtest-mimic = "0.7"
-serial_test = "3.1.1"
+serial_test = "2.0.0"
 tempfile = "3.10.1"
 
 [[bin]]

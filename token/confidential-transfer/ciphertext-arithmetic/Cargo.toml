@@ -8,15 +8,14 @@ license = "Apache-2.0"
 edition = "2021"
 
 [dependencies]
-base64 = { workspace = true }
+base64 = "0.22.0"
+bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck", features = ["derive"] }
 
-bytemuck = { workspace = true }
-
-curve25519-dalek = { workspace = true }
-lumos-zk-token-sdk = { workspace = true }
+curve25519-dalek = { path = "../../../../curve25519-dalek/curve25519-dalek", features = ["alloc", "precomputed-tables", "zeroize"] }
+lumos-zk-token-sdk = { path = "../../../../lumos/zk-token-sdk" }
 
 [dev-dependencies]
-lpl-token-confidential-transfer-proof-generation = { workspace = true }
+lpl-token-confidential-transfer-proof-generation = { path = "../../../token/confidential-transfer/proof-generation" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

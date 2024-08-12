@@ -4,13 +4,14 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-borsh = { workspace = true }
-lumos-program = { workspace = true }
-lpl-token = { workspace = true }
-lpl-associated-token-account = { workspace = true }
-thiserror = { workspace = true }
-lumos-program-test = { workspace = true }
-lumos-sdk = { workspace = true }
+borsh = { version = "1.5.1", features = ["unstable__schema"] }
+thiserror = "1.0.57"
+
+lumos-program = { path = "../../../lumos/sdk/program" }
+lumos-program-test = { path = "../../../lumos/program-test" }
+lumos-sdk = { path = "../../../lumos/sdk" }
+lpl-token = { path = "../../token/program" }
+lpl-associated-token-account = { path = "../../associated-token-account/program" }
 
 [lib]
 crate-type = ["cdylib", "lib"]
