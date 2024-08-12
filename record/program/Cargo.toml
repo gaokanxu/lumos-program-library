@@ -12,17 +12,16 @@ no-entrypoint = []
 test-sbf = []
 
 [dependencies]
-bytemuck = { version = "1.16.1", features = ["derive"] }
+bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck", features = ["derive"] }
 num-derive = "0.4"
-num-traits = "0.2"
-thiserror = "1.0"
+num-traits = { version = "0.2", features = ["i128"] }
+thiserror = "1.0.57"
 
-lumos-program = { workspace = true }
-lpl-pod = { workspace = true }
+lumos-program = { path = "../../../lumos/sdk/program" }
+lumos-sdk = { path = "../../../lumos/sdk" }
+lpl-pod = { path = "../../libraries/pod" }
 
-[dev-dependencies]
-lumos-program-test = { workspace = true }
-lumos-sdk = { workspace = true }
+
 
 [lib]
 crate-type = ["cdylib", "lib"]

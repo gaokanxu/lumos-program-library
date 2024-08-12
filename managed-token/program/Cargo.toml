@@ -22,15 +22,14 @@ default = []
 test = []
 
 [dependencies]
-borsh = "1.5.1"
-shank = "^0.4.2"
-thiserror = "^1.0.63"
+borsh = { version = "1.5.1", features = ["unstable__schema"] }
+shank = "0.4.2"
+thiserror = "1.0.57"
 
-lumos-program = { workspace = true }
-lumos-sdk = { workspace = true }
-lpl-associated-token-account = { workspace = true }
-lpl-token = { workspace = true }
+lumos-program = { path = "../../../lumos/sdk/program" }
+lumos-sdk = { path = "../../../lumos/sdk" }
+lpl-associated-token-account =  { path = "../../associated-token-account/program" } 
+lpl-token = { path = "../../token/program" } 
 
-[dev-dependencies]
-lumos-program-test = { workspace = true }
+
 

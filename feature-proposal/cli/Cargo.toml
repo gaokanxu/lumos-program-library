@@ -8,15 +8,15 @@ license = "Apache-2.0"
 edition = "2021"
 
 [dependencies]
-chrono = { workspace = true }
-clap = { workspace = true }
+chrono = "0.4.34"
+clap = { version = "4.5.15", features = ["cargo"] }
 
-lumos-clap-utils = { workspace = true }
-lumos-cli-config = { workspace = true }
-lumos-client = { workspace = true }
-lumos-logger = { workspace = true }
-lumos-sdk = { workspace = true }
-lpl-feature-proposal = { workspace = true }
+lumos-clap-utils = { path = "../../../lumos/clap-utils" }
+lumos-cli-config = { path = "../../../lumos/cli-config" }
+lumos-client = { path = "../../../lumos/client" }
+lumos-logger = { path = "../../../lumos/logger" }
+lumos-sdk = { path = "../../../lumos/sdk" }
+lpl-feature-proposal = { path = "../../feature-proposal/program" }
 
 [[bin]]
 name = "lpl-feature-proposal"

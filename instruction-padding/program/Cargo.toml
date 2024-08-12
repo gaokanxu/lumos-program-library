@@ -9,11 +9,10 @@ homepage = "https://lumos.com/"
 edition = "2021"
 
 [dependencies]
-num_enum = { workspace = true }
+num_enum = "0.7.2"
 
-lumos-program = { workspace = true }
-#lumos-program-test = { workspace = true }
-lumos-sdk = { workspace = true }
+lumos-program = { path = "../../../lumos/sdk/program" }
+lumos-sdk = { path = "../../../lumos/sdk" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

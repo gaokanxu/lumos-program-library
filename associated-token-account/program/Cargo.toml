@@ -12,15 +12,15 @@ no-entrypoint = []
 test-sbf = []
 
 [dependencies]
-assert_matches = { workspace = true }
-borsh = { workspace = true }
-thiserror = { workspace = true }
-num-derive = { workspace = true }
-num-traits = { workspace = true }
+assert_matches = "1.5.0"
+borsh = { version = "1.5.1", features = ["unstable__schema"] } 
+thiserror = "1.0.57"
+num-derive = "0.4"
+num-traits = { version = "0.2", features = ["i128"] }
 
-lumos-program = { workspace = true }
+lumos-program = { path = "../../../lumos/sdk/program" }
 #lpl-token = { workspace = true }
-lpl-token-2022 = { workspace = true }
+lpl-token-2022 = { path = "../../token/program-2022" }
 
 
 [lib]

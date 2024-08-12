@@ -8,6 +8,6 @@ license = "Apache-2.0"
 edition = "2021"
 
 [dependencies]
-borsh = "1.5.1"
-lpl-governance-tools = { version = "0.1.4", path = "../tools" }
-lumos-program = { workspace = true }
+borsh = { version = "1.5.1", features = ["unstable__schema"] } 
+lpl-governance-tools = { path = "../tools" }
+lumos-program = { path = "../../../lumos/sdk/program" }

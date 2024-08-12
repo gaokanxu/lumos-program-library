@@ -12,12 +12,13 @@ exclude = ["js/**"]
 derive = ["dep:lpl-type-length-value-derive"]
 
 [dependencies]
-bytemuck = { version = "1.16.1", features = ["derive"] }
-lumos-program = { workspace = true }
-lpl-discriminator = { version = "0.3.0", path = "../discriminator" }
-lpl-program-error = { version = "0.5.0", path = "../program-error" }
-lpl-type-length-value-derive = { version = "0.1", path = "./derive", optional = true }
-lpl-pod = { version = "0.3.0", path = "../pod" }
+bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck", features = ["derive"] }
+
+lumos-program = { path = "../../../lumos/sdk/program" }
+lpl-discriminator = { path = "../discriminator" }
+lpl-program-error = { path = "../program-error" }
+lpl-type-length-value-derive = { path = "./derive", optional = true }
+lpl-pod = { path = "../pod" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

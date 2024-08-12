@@ -9,15 +9,15 @@ edition = "2021"
 
 
 [dependencies]
-thiserror = { workspace =  true }
+thiserror = "1.0.57"
 
-bytemuck = { workspace =  true }
-rand_distr = { workspace =  true }
-rand = { workspace =  true }
-tokio = { workspace =  true }
+bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck", features = ["derive"] }
+rand = { git = "https://github.com/gaokanxu/rand0_8.git", branch = "main", package = "rand", version = "0.8.5"}
+rand_distr = { git = "https://github.com/gaokanxu/rand0_8.git", branch = "main", package = "rand_distr",version = "0.4.3" }
+tokio = { git = "https://github.com/gaokanxu/tokio.git", branch = "main", package = "tokio" }
 
-lumos-program = { workspace =  true }
-lpl-merkle-tree-reference = { workspace =  true }
+lumos-program = { path = "../../../lumos/sdk/program" }
+lpl-merkle-tree-reference = { path = "../merkle-tree-reference" } 
 
 [lib]
 crate-type = ["cdylib", "lib"]

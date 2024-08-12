@@ -8,12 +8,12 @@ license = "Apache-2.0"
 edition = "2021"
 
 [dependencies]
-bytemuck = { workspace = true }
-lumos-program = { workspace = true }
-lpl-discriminator = { workspace = true }
-lpl-pod = { workspace = true }
-lpl-program-error = { workspace = true }
-lpl-type-length-value = { workspace = true }
+bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck", features = ["derive"] }
+lumos-program = { path = "../../../lumos/sdk/program" }
+lpl-discriminator = { path = "../../libraries/discriminator" }
+lpl-pod = { path = "../../libraries/pod" }
+lpl-program-error = { path = "../../libraries/program-error" }
+lpl-type-length-value = { path = "../../libraries/type-length-value" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

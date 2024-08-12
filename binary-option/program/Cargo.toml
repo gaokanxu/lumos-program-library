@@ -5,13 +5,13 @@ edition = "2021"
 license = "WTFPL"
 
 [dependencies]
-thiserror = { workspace = true }
-arrayref = { workspace = true }
-borsh = { workspace = true }
-uint = { workspace = true }
+thiserror = "1.0.57"
+arrayref = "0.3.8"
+borsh = { version = "1.5.1", features = ["unstable__schema"] } 
+uint = "0.9.5"
 
-lumos-program = { workspace = true }
-lpl-token = { workspace = true }
+lumos-program = { path = "../../../lumos/sdk/program" }
+lpl-token = { path = "../../token/program" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

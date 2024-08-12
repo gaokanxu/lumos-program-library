@@ -20,8 +20,8 @@ proptest = "1.5.0"
 serial_test = "3.1.1"
 
 
-lumos-program = { path = "../../../lumos/curve25519-dalek/curve25519-dalek"}
-lumos-sdk = { workspace = true }
+lumos-program = { path = "../../../lumos/sdk/program"}
+lumos-sdk = { path = "../../../lumos/sdk"}
 #lumos-program-test = { workspace = true } 
 
 [lib]

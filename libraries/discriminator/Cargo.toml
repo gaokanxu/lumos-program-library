@@ -11,9 +11,10 @@ edition = "2021"
 borsh = ["dep:borsh"]
 
 [dependencies]
-borsh = { version = "1", optional = true }
-bytemuck = { version = "1.16.1", features = ["derive"] }
-lumos-program = { workspace = true }
+borsh = { version = "1.5.1", features = ["unstable__schema"], optional = true }
+bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck", features = ["derive"] }
+
+lumos-program = { path = "../../../lumos/sdk/program" }
 lpl-discriminator-derive = { version = "0.2.0", path = "./derive" }
 
 [lib]

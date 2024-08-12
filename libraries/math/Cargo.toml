@@ -8,18 +8,16 @@ license = "Apache-2.0"
 edition = "2021"
 
 [dependencies]
-borsh = { workspace = true }
-num-derive = { workspace = true }
-num-traits = { workspace = true }
-thiserror = { workspace = true }
-uint = { workspace = true }
-proptest = { workspace = true }
-libm = { workspace = true }
+borsh = { version = "1.5.1", features = ["unstable__schema"] }
+num-derive = "0.4"
+num-traits = { version = "0.2", features = ["i128"] }
+thiserror = "1.0.57"
+uint = "0.9.5"
+proptest = "1.4"
+libm = "0.2.8"
 
-
-lumos-program = { workspace = true }
-#lumos-program-test = { workspace = true }
-lumos-sdk = { workspace = true }
+lumos-program = { path = "../../../lumos/sdk/program" }
+lumos-sdk = { path = "../../../lumos/sdk" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

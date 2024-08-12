@@ -12,11 +12,9 @@ test-sbf = []
 
 [dependencies]
 arrayref = "0.3.8"
-lumos-program = { workspace = true }
 
-[dev-dependencies]
-lumos-program-test = { workspace = true }
-lumos-sdk = { workspace = true }
+lumos-program = { path = "../../../lumos/sdk/program" }
+lumos-sdk = { path = "../../../lumos/sdk" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

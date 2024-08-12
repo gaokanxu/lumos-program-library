@@ -8,24 +8,23 @@ repository = "https://github.com/gaokanxu/lumos"
 version = "0.11.0"
 
 [dependencies]
-async-trait = { workspace =  true }
-curve25519-dalek = { workspace =  true }
-futures = { workspace =  true }
-futures-util = { workspace =  true }
-thiserror = { workspace =  true }
+async-trait = "0.1.77"
+curve25519-dalek = { path = "../../../curve25519-dalek/curve25519-dalek", features = ["alloc", "precomputed-tables", "zeroize"] }
+futures = "0.3.30"
+futures-util = "0.3.29"
+thiserror = "1.0.57"
 
-lumos-banks-interface = { workspace =  true }
-lumos-cli-output = { workspace =  true,  optional = true }
-#lumos-program-test = { workspace = true }
-lumos-rpc-client = { workspace =  true }
-lumos-rpc-client-api = { workspace =  true }
-lumos-sdk = { workspace = true }
-lpl-associated-token-account = { workspace =  true }
-lpl-memo = { workspace =  true }
-lpl-token = { workspace =  true }
-lpl-token-2022 = { workspace =  true }
-lpl-token-group-interface = { workspace =  true }
-lpl-token-metadata-interface = { workspace =  true }
-lpl-transfer-hook-interface = { workspace =  true }
+lumos-banks-interface = { path = "../../../lumos/banks-interface" }
+lumos-cli-output = { path = "../../../lumos/cli-output"}
+lumos-rpc-client = { path = "../../../lumos/rpc-client" }
+lumos-rpc-client-api = { path = "../../../lumos/rpc-client-api" }
+lumos-sdk = { path = "../../../lumos/sdk" }
+lpl-associated-token-account = { path = "../../associated-token-account/program" }
+lpl-memo = { path = "../../memo/program" }
+lpl-token = { path = "../../token/program" }
+lpl-token-2022 = { path = "../../token/program-2022" }
+lpl-token-group-interface = { path = "../../token-group/interface" }
+lpl-token-metadata-interface = { path = "../../token-metadata/interface" }
+lpl-transfer-hook-interface = { path = "../../token/transfer-hook/interface" }
 
 

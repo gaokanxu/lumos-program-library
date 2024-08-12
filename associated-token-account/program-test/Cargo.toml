@@ -8,9 +8,8 @@ repository = "https://github.com/gaokanxu/lumos"
 version = "0.0.1"
 
 [dependencies]
-lumos-program = { workspace = true }
-#lumos-program-test = { workspace = true }
-lumos-sdk = { workspace = true }
-lpl-associated-token-account = { workspace = true }
-lpl-token = { workspace = true }
-lpl-token-2022 = { workspace = true }
+lumos-program = { path = "../../../lumos/sdk/program" }
+lumos-sdk = { path = "../../../lumos/sdk" }
+lpl-associated-token-account = { path = "../../associated-token-account/program" }
+lpl-token = { path = "../../token/program" }
+lpl-token-2022 = { path = "../../token/program-2022" }

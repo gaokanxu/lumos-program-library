@@ -12,10 +12,9 @@ no-entrypoint = []
 test-sbf = []
 
 [dependencies]
-lumos-program = { workspace = true }
-#lumos-program-test = { workspace = true }
-lumos-sdk = { workspace = true }
-lpl-token = { workspace = true }
+lumos-program = { path = "../../../../lumos/sdk/program" }
+lumos-sdk = { path = "../../../../lumos/sdk" }
+lpl-token = { path = "../../../token/program" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

@@ -9,13 +9,13 @@ edition = "2021"
 
 [dependencies]
 arrayref = "0.3.8"
-bytemuck = { version = "1.16.1", features = ["derive"] }
-lumos-program = { workspace = true }
-lpl-discriminator = { version = "0.3.0" , path = "../../../libraries/discriminator" }
-lpl-program-error = { version = "0.5.0" , path = "../../../libraries/program-error" }
-lpl-tlv-account-resolution = { version = "0.7.0" , path = "../../../libraries/tlv-account-resolution" }
-lpl-type-length-value = { version = "0.5.0" , path = "../../../libraries/type-length-value" }
-lpl-pod = { version = "0.3.0", path = "../../../libraries/pod" }
+bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck", features = ["derive"] }
+lumos-program = { path = "../../../../lumos/sdk/program" }
+lpl-discriminator = { path = "../../../libraries/discriminator" }
+lpl-program-error = { path = "../../../libraries/program-error" }
+lpl-tlv-account-resolution = { path = "../../../libraries/tlv-account-resolution" }
+lpl-type-length-value = { path = "../../../libraries/type-length-value" }
+lpl-pod = { path = "../../../libraries/pod" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

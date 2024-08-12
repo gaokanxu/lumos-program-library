@@ -9,37 +9,36 @@ edition = "2021"
 exclude = ["js/**"]
 
 [dependencies]
-arrayref = { workspace = true }
-num-derive = { workspace = true }
-num-traits = { workspace = true }
-num_enum = { workspace = true }
-thiserror = { workspace = true }
-serde = { workspace = true }
-serde_with = { workspace = true }
-base64 = { workspace = true }
+arrayref = "0.3.7"
+num-derive = "0.4"
+num-traits = { version = "0.2", features = ["i128"] }
+num_enum = "0.7.2"
+thiserror = "1.0.57"
+serde = { version = "1.0.204", features = ["derive"] }
+serde_with = "2.3.3"
+base64 = "0.22.0"
 
-lazy_static = { workspace = true }
-proptest = { workspace = true }
-serial_test = { workspace = true }
-serde_json = { workspace = true }
+lazy_static = "1.5.0"
+proptest = "1.4"
+serial_test = "2.0.0"
+serde_json = "1.0.114"
 
-bytemuck = { workspace = true }
-security-txt = { workspace = true }
+bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck", features = ["derive"] }
+security-txt = { git = "https://github.com/gaokanxu/security-txt.git", branch = "main", package = "security-txt" }
 
-lumos-program = { workspace = true }
+lumos-program = { path = "../../../lumos/sdk/program" }
 #lumos-transaction-status = { workspace = true }
 #lumos-program-test = { workspace = true }
-lumos-sdk = { workspace = true }
-lumos-zk-token-sdk = { workspace = true }
+lumos-sdk = { path = "../../../lumos/sdk" }
+lumos-zk-token-sdk = { path = "../../../lumos/zk-token-sdk" }
 
-lpl-memo = { workspace = true }
-#lpl-token = { workspace = true }
-lpl-token-group-interface = { workspace = true }
-lpl-token-metadata-interface = { workspace = true }
-lpl-transfer-hook-interface = { workspace = true }
-lpl-type-length-value = { workspace = true }
-lpl-pod = { workspace = true }
-lpl-tlv-account-resolution = { workspace = true }
+lpl-memo = { path = "../../memo/program" }
+lpl-token-group-interface = { path = "../../token-group/interface" }
+lpl-token-metadata-interface = { path = "../../token-metadata/interface" }
+lpl-transfer-hook-interface = { path = "../../token/transfer-hook/interface" }
+lpl-type-length-value = { path = "../../libraries/type-length-value" }
+lpl-pod = { path = "../../libraries/pod" }
+lpl-tlv-account-resolution = { path = "../../libraries/tlv-account-resolution" }
 
 [lib]
 crate-type = ["cdylib", "lib"]

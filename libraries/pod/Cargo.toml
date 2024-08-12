@@ -8,19 +8,20 @@ license = "Apache-2.0"
 edition = "2021"
 
 [dependencies]
-base64 = { workspace = true }
-borsh = { workspace = true }
-serde = { workspace = true }
+base64 = "0.22.0"
+borsh = { version = "1.5.1", features = ["unstable__schema"] }
+serde = { version = "1.0.204", features = ["derive"] }
 
-bytemuck = { workspace = true }
-bytemuck-derive = { workspace = true }
+bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck", features = ["derive"] }
+bytemuck-derive = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck_derive" }
 
-lumos-program = { workspace = true }
-lumos-zk-token-sdk = { workspace = true }
-lpl-program-error = { workspace = true }
+lumos-program = { path = "../../../lumos/sdk/program" }
+lumos-zk-token-sdk = { path = "../../../lumos/zk-token-sdk" }
+lpl-program-error = { path = "../program-error" }
+
 
 [dev-dependencies]
-serde_json = { workspace = true }
+serde_json = "1.0.114"
 
 [lib]
 crate-type = ["cdylib", "lib"]
