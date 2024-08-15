@@ -11,6 +11,7 @@ edition = "2021"
 base64 = "0.22.0"
 bytemuck = { git = "https://github.com/gaokanxu/bytemuck.git", branch = "main", package = "bytemuck", features = ["derive"] }
 
+lumos-curve25519 = { path = "../../../../lumos/curves/curve25519" }
 curve25519-dalek = { path = "../../../../curve25519-dalek/curve25519-dalek", features = ["alloc", "precomputed-tables", "zeroize"] }
 lumos-zk-token-sdk = { path = "../../../../lumos/zk-token-sdk" }
 

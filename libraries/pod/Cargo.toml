@@ -7,6 +7,10 @@ repository = "https://github.com/gaokanxu/lumos"
 license = "Apache-2.0"
 edition = "2021"
 
+[features]
+borsh = []
+default = ["borsh"]
+
 [dependencies]
 base64 = "0.22.0"
 borsh = { version = "1.5.1", features = ["unstable__schema"] }

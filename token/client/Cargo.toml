@@ -15,9 +15,9 @@ futures-util = "0.3.29"
 thiserror = "1.0.57"
 
 lumos-banks-interface = { path = "../../../lumos/banks-interface" }
-lumos-cli-output = { path = "../../../lumos/cli-output"}
-lumos-rpc-client = { path = "../../../lumos/rpc-client" }
-lumos-rpc-client-api = { path = "../../../lumos/rpc-client-api" }
+#lumos-cli-output = { path = "../../../lumos/cli-output"}
+#lumos-rpc-client = { path = "../../../lumos/rpc-client" }
+#lumos-rpc-client-api = { path = "../../../lumos/rpc-client-api" }
 lumos-sdk = { path = "../../../lumos/sdk" }
 lpl-associated-token-account = { path = "../../associated-token-account/program" }
 lpl-memo = { path = "../../memo/program" }

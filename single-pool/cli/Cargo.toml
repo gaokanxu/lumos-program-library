@@ -22,7 +22,7 @@ test-case = "3.3.1"
 tempfile = "3.10.1"
 
 
-lumos-account-decoder = { path = "../../../lumos/account-decoder" }
+#lumos-account-decoder = { path = "../../../lumos/account-decoder" }
 lumos-clap-v3-utils = { path = "../../../lumos/clap-v3-utils" }
 lumos-cli-config = { path = "../../../lumos/cli-config" }
 lumos-cli-output = { path = "../../../lumos/cli-output", optional = true}

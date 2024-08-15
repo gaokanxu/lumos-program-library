@@ -28,6 +28,7 @@ security-txt = { git = "https://github.com/gaokanxu/security-txt.git", branch = 
 
 lumos-program = { path = "../../../lumos/sdk/program" }
 lumos-sdk = { path = "../../../lumos/sdk" }
+#lumos-transaction-status = { path = "../../../lumos/transaction-status" }
 lumos-zk-token-sdk = { path = "../../../lumos/zk-token-sdk" }
 
 lpl-memo = { path = "../../memo/program" }

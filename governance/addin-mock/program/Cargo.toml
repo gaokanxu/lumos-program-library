@@ -24,7 +24,7 @@ lumos-sdk = { path = "../../../../lumos/sdk" }
 lpl-token = { path = "../../../token/program" }
 lpl-governance-addin-api = { path = "../../../governance/addin-api" }
 lpl-governance-tools = { path = "../../../governance/tools" }
-lpl-governance-test-sdk = { path = "../../../governance/test-sdk" }
+#lpl-governance-test-sdk = { path = "../../../governance/test-sdk" }
 
 
 [lib]

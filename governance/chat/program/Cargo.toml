@@ -23,7 +23,7 @@ lpl-token = { path = "../../../token/program" }
 lpl-governance = { path = "../../program" }
 lpl-governance-tools = { path = "../../tools" }
 lpl-governance-addin-api = { path = "../../addin-api" }
-lpl-governance-test-sdk = { path = "../../test-sdk" }
+#lpl-governance-test-sdk = { path = "../../test-sdk" }
 lpl-governance-addin-mock = { path = "../../addin-mock/program" }
 
 
