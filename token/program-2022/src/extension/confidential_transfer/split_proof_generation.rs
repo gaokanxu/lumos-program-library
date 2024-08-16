@@ -7,7 +7,8 @@
 use crate::{
     extension::confidential_transfer::{
         ciphertext_extraction::{transfer_amount_source_ciphertext, SourceDecryptHandles},
-        processor::verify_and_split_deposit_amount,
+        //processor::verify_and_split_deposit_amount,
+        //gaokanxu 2024.08.16 erase 1 upper line
         *,
     },
     lumos_zk_token_sdk::{

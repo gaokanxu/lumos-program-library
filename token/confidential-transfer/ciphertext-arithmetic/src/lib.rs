@@ -5,7 +5,7 @@ use {
         ristretto::{add_ristretto, multiply_ristretto, subtract_ristretto, PodRistrettoPoint},
         scalar::PodScalar,
     },
-    lumos_zk_sdk::encryption::pod::elgamal::PodElGamalCiphertext,
+    lumos_zk_token_sdk::encryption::pod::elgamal::PodElGamalCiphertext,
     std::str::FromStr,
 };
 

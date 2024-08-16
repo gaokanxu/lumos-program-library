@@ -13,9 +13,9 @@ clap = { version = "4.5.15", features = ["cargo"] }
 
 lumos-clap-utils = { path = "../../../lumos/clap-utils" }
 lumos-cli-config = { path = "../../../lumos/cli-config" }
-#lumos-client = { path = "../../../lumos/client" }
+lumos-client = { path = "../../../lumos/client" }
 lumos-logger = { path = "../../../lumos/logger" }
-#lumos-sdk = { path = "../../../lumos/sdk" }
+lumos-sdk = { path = "../../../lumos/sdk" }
 lpl-feature-proposal = { path = "../../feature-proposal/program" }
 
 [[bin]]

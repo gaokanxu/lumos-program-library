@@ -6,7 +6,9 @@ use {
         account_info::AccountInfo, entrypoint::ProgramResult, program_error::PrintProgramError,
         pubkey::Pubkey,
     },
-    lumos_security_txt::security_txt,
+    //lumos_security_txt::security_txt,
+    //gaokanxu 2024.08.16
+    security_txt::security_txt,
 };
 
 lumos_program::entrypoint!(process_instruction);
