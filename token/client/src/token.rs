@@ -58,7 +58,7 @@ use {
                 elgamal::{ElGamalCiphertext, ElGamalKeypair, ElGamalPubkey, ElGamalSecretKey},
             },
             instruction::*,
-            zk_token_elgamal::pod::ElGamalPubkey as PodElGamalPubkey,
+            pod::ElGamalPubkey as PodElGamalPubkey,
             zk_token_proof_instruction::{self, ContextStateInfo, ProofInstruction},
             zk_token_proof_program,
             zk_token_proof_state::ProofContextState,

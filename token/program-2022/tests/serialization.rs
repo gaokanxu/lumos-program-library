@@ -7,7 +7,7 @@ use {
     lpl_token_2022::{
         extension::confidential_transfer,
         instruction,
-        lumos_zk_token_sdk::zk_token_elgamal::pod::{AeCiphertext, ElGamalPubkey},
+        lumos_zk_token_sdk::pod::{AeCiphertext, ElGamalPubkey},
     },
     std::str::FromStr,
 };

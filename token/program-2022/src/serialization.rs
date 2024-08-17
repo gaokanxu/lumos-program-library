@@ -106,7 +106,7 @@ pub mod aeciphertext_fromstr {
             de::{Error, Visitor},
             Deserializer, Serializer,
         },
-        lumos_zk_token_sdk::zk_token_elgamal::pod::AeCiphertext,
+        lumos_zk_token_sdk::pod::AeCiphertext,
         std::fmt,
     };
 
@@ -154,7 +154,7 @@ pub mod elgamalpubkey_fromstr {
             de::{Error, Visitor},
             Deserializer, Serializer,
         },
-        lumos_zk_token_sdk::zk_token_elgamal::pod::ElGamalPubkey,
+        lumos_zk_token_sdk::pod::ElGamalPubkey,
         std::fmt,
     };
 
@@ -203,7 +203,7 @@ pub mod decrypthandle_fromstr {
             de::{Error, Visitor},
             Deserializer, Serializer,
         },
-        lumos_zk_token_sdk::zk_token_elgamal::pod::DecryptHandle,
+        lumos_zk_token_sdk::pod::DecryptHandle,
         std::fmt,
     };
 

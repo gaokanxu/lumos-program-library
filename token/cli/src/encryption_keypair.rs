@@ -7,7 +7,7 @@ use {
     clap::ArgMatches,
     lpl_token_2022::lumos_zk_token_sdk::{
         encryption::elgamal::{ElGamalKeypair, ElGamalPubkey},
-        zk_token_elgamal::pod::ElGamalPubkey as PodElGamalPubkey,
+        pod::ElGamalPubkey as PodElGamalPubkey,
     },
 };
 

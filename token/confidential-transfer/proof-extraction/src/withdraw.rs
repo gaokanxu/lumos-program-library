@@ -1,7 +1,7 @@
 use {
     crate::errors::TokenProofExtractionError,
-    lumos_zk_sdk::{
-        encryption::pod::elgamal::{PodElGamalCiphertext, PodElGamalPubkey},
+    lumos_zk_token_sdk::{
+        pod::elgamal::{PodElGamalCiphertext, PodElGamalPubkey},
         zk_elgamal_proof_program::proof_data::{
             BatchedRangeProofContext, CiphertextCommitmentEqualityProofContext,
         },

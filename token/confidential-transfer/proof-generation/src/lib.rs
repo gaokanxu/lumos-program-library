@@ -1,6 +1,6 @@
 use {
     curve25519_dalek::scalar::Scalar,
-    lumos_zk_sdk::encryption::{
+    lumos_zk_token_sdk::encryption::{
         elgamal::ElGamalCiphertext,
         pedersen::{PedersenCommitment, PedersenOpening},
     },

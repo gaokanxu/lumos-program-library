@@ -63,7 +63,7 @@ use {
                 auth_encryption::AeKey,
                 elgamal::{self, ElGamalKeypair},
             },
-            zk_token_elgamal::pod::ElGamalPubkey,
+            pod::ElGamalPubkey,
         },
         state::{Account, AccountState, Mint},
     },

@@ -15,7 +15,7 @@ use {
         },
         instruction::{encode_instruction, TokenInstruction},
         proof::ProofLocation,
-        lumos_zk_token_sdk::zk_token_elgamal::pod::ElGamalPubkey,
+        lumos_zk_token_sdk::pod::ElGamalPubkey,
     },
     bytemuck::{Pod, Zeroable},
     num_enum::{IntoPrimitive, TryFromPrimitive},

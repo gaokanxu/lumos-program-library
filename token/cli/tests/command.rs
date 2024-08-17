@@ -32,7 +32,7 @@ use {
             BaseStateWithExtensions, StateWithExtensionsOwned,
         },
         instruction::create_native_mint,
-        lumos_zk_token_sdk::zk_token_elgamal::pod::ElGamalPubkey,
+        lumos_zk_token_sdk::pod::ElGamalPubkey,
         state::{Account, AccountState, Mint, Multisig},
     },
     lpl_token_cli::{

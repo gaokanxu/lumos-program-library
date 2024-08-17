@@ -1,6 +1,6 @@
 use {
     crate::errors::TokenProofGenerationError,
-    lumos_zk_sdk::{
+    lumos_zk_token_sdk::{
         encryption::{
             elgamal::{ElGamal, ElGamalCiphertext, ElGamalKeypair},
             pedersen::Pedersen,

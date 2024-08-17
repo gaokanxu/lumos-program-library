@@ -5,7 +5,7 @@ use {
     },
     bytemuck::{Pod, Zeroable},
     lumos_program::entrypoint::ProgramResult,
-    lumos_zk_token_sdk::zk_token_elgamal::pod::{AeCiphertext, ElGamalCiphertext, ElGamalPubkey},
+    lumos_zk_token_sdk::pod::{AeCiphertext, ElGamalCiphertext, ElGamalPubkey},
     lpl_pod::{
         bytemuck::pod_from_bytes,
         optional_keys::{OptionalNonZeroElGamalPubkey, OptionalNonZeroPubkey},

@@ -4,7 +4,7 @@ use {
         try_combine_lo_hi_ciphertexts, try_split_u64, REMAINING_BALANCE_BIT_LENGTH,
         TRANSFER_AMOUNT_HI_BITS, TRANSFER_AMOUNT_LO_BITS,
     },
-    lumos_zk_sdk::{
+    lumos_zk_token_sdk::{
         encryption::{
             auth_encryption::{AeCiphertext, AeKey},
             elgamal::{ElGamalCiphertext, ElGamalKeypair, ElGamalPubkey},

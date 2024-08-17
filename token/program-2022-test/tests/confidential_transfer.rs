@@ -31,7 +31,7 @@ use {
         },
         lumos_zk_token_sdk::{
             encryption::{auth_encryption::*, elgamal::*},
-            zk_token_elgamal::pod::{self, Zeroable},
+            pod::{self, Zeroable},
             zk_token_proof_instruction::*,
             zk_token_proof_program,
             zk_token_proof_state::ProofContextState,

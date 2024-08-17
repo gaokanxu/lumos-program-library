@@ -30,7 +30,7 @@ use {
         pod::{PodAccount, PodMint},
         processor::Processor,
         proof::decode_proof_instruction_context,
-        lumos_zk_token_sdk::zk_token_elgamal::pod::ElGamalPubkey,
+        lumos_zk_token_sdk::pod::ElGamalPubkey,
     },
     bytemuck::Zeroable,
     lumos_program::{

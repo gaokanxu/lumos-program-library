@@ -1,5 +1,5 @@
 use {
-    lumos_zk_sdk::{
+    lumos_zk_token_sdk::{
         encryption::{auth_encryption::AeKey, elgamal::ElGamalKeypair},
         zk_elgamal_proof_program::proof_data::ZkProofData,
     },

@@ -1,4 +1,4 @@
-use lumos_zk_sdk::encryption::pod::grouped_elgamal::{
+use lumos_zk_token_sdk::pod::grouped_elgamal::{
     PodGroupedElGamalCiphertext2Handles, PodGroupedElGamalCiphertext3Handles,
 };
 

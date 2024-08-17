@@ -8,8 +8,8 @@ use {
         ristretto::{self, PodRistrettoPoint},
         scalar::PodScalar,
     },
-    lumos_zk_sdk::{
-        encryption::pod::{
+    lumos_zk_token_sdk::{
+        pod::{
             elgamal::{PodElGamalCiphertext, PodElGamalPubkey},
             pedersen::PodPedersenCommitment,
         },

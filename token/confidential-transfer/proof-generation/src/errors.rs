@@ -1,4 +1,4 @@
-use {lumos_zk_sdk::zk_elgamal_proof_program::errors::ProofGenerationError, thiserror::Error};
+use {lumos_zk_token_sdk::zk_elgamal_proof_program::errors::ProofGenerationError, thiserror::Error};
 
 #[derive(Error, Clone, Debug, Eq, PartialEq)]
 pub enum TokenProofGenerationError {

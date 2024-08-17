@@ -1,4 +1,4 @@
-use lumos_zk_sdk::encryption::{
+use lumos_zk_token_sdk::encryption::{
     elgamal::{DecryptHandle, ElGamalPubkey},
     grouped_elgamal::{GroupedElGamal, GroupedElGamalCiphertext},
     pedersen::{PedersenCommitment, PedersenOpening},

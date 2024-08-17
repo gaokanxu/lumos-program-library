@@ -22,7 +22,7 @@ use {
             ExtensionType,
         },
         instruction, native_mint,
-        lumos_zk_token_sdk::zk_token_elgamal::pod::ElGamalPubkey,
+        lumos_zk_token_sdk::pod::ElGamalPubkey,
         state::Mint,
     },
     lpl_token_client::token::ExtensionInitializationParams,

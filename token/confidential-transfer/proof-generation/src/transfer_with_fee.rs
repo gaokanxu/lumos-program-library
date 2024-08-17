@@ -6,7 +6,7 @@ use {
         try_split_u64, TRANSFER_AMOUNT_HI_BITS, TRANSFER_AMOUNT_LO_BITS,
     },
     curve25519_dalek::scalar::Scalar,
-    lumos_zk_sdk::{
+    lumos_zk_token_sdk::{
         encryption::{
             auth_encryption::{AeCiphertext, AeKey},
             elgamal::{ElGamalCiphertext, ElGamalKeypair, ElGamalPubkey},

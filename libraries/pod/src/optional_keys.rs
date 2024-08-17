@@ -11,7 +11,7 @@ use {
 use {
     bytemuck_derive::{Pod, Zeroable},
     lumos_program::{program_error::ProgramError, program_option::COption, pubkey::Pubkey},
-    lumos_zk_token_sdk::zk_token_elgamal::pod::ElGamalPubkey,
+    lumos_zk_token_sdk::pod::ElGamalPubkey,
 };
 
 /// A Pubkey that encodes `None` as all `0`, meant to be usable as a Pod type,

@@ -9,21 +9,33 @@ use crate::{
     },
     lumos_program::program_error::ProgramError,
     lumos_zk_token_sdk::{
+    
+        //gaokanxu 2024.08.17 erase below 4 lines
+        /*
         curve25519::{
             ristretto::{self, PodRistrettoPoint},
             scalar::PodScalar,
         },
+        */
         instruction::{
             transfer::{TransferProofContext, TransferWithFeeProofContext},
             BatchedGroupedCiphertext2HandlesValidityProofContext, BatchedRangeProofContext,
             CiphertextCommitmentEqualityProofContext, FeeSigmaProofContext,
         },
-        zk_token_elgamal::pod::{
+        pod::{
             DecryptHandle, FeeEncryption, GroupedElGamalCiphertext2Handles,
             GroupedElGamalCiphertext3Handles, PedersenCommitment, TransferAmountCiphertext,
         },
     },
 };
+//gaokanxu 2024.08.17 begin
+use lumos_curve25519::{
+            ristretto::{self, PodRistrettoPoint},
+            scalar::PodScalar,
+        };
+//gaokanxu 2024.08.17 end
+
+
 #[cfg(feature = "serde-traits")]
 use {
     crate::serialization::decrypthandle_fromstr,
