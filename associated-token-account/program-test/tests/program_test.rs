@@ -14,7 +14,7 @@ pub fn program_test(token_mint_address: Pubkey, use_latest_lpl_token: bool) -> P
 
     if use_latest_lpl_token {
         pc.prefer_bpf(false);
-        // TODO: Remove when spl-token is available by default in program-test
+        // TODO: Remove when lpl-token is available by default in program-test
         pc.add_program(
             "lpl_token",
             lpl_token::id(),
@@ -55,7 +55,7 @@ pub fn program_test_2022(
 
     if use_latest_lpl_token_2022 {
         pc.prefer_bpf(false);
-        // TODO: Remove when spl-token-2022 is available by default in program-test
+        // TODO: Remove when lpl-token-2022 is available by default in program-test
         pc.add_program(
             "lpl_token_2022",
             lpl_token_2022::id(),

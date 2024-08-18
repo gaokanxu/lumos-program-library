@@ -161,7 +161,7 @@ fn main() {
                         .value_name("KEYPAIR")
                         .takes_value(true)
                         .required(true)
-                        .help("Owner of the SPL Token account to deposit initial liquidity from"),
+                        .help("Owner of the LPL Token account to deposit initial liquidity from"),
                 )
                 .arg(
                     Arg::with_name("lending_market")

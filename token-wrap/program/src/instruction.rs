@@ -19,7 +19,7 @@ pub enum TokenWrapInstruction {
     ///    `get_wrapped_mint_backpointer_address(wrapped_mint_address)`
     /// 3. `[]` Existing unwrapped mint
     /// 4. `[]` System program
-    /// 5. `[]` SPL Token program for wrapped mint
+    /// 5. `[]` LPL Token program for wrapped mint
     ///
     /// Data expected by this instruction:
     ///   * bool: true = idempotent creation, false = non-idempotent creation
@@ -42,8 +42,8 @@ pub enum TokenWrapInstruction {
     /// 4. `[writeable]` Recipient wrapped token account
     /// 5. `[]` Escrow mint authority, address must be:
     ///    `get_wrapped_mint_authority(wrapped_mint)`
-    /// 6. `[]` SPL Token program for unwrapped mint
-    /// 7. `[]` SPL Token program for wrapped mint
+    /// 6. `[]` LPL Token program for unwrapped mint
+    /// 7. `[]` LPL Token program for wrapped mint
     /// 8. `[signer]` Transfer authority on unwrapped token account
     /// 8..8+M. `[signer]` (Optional) M multisig signers on unwrapped token
     /// account
@@ -69,8 +69,8 @@ pub enum TokenWrapInstruction {
     /// 4. `[]` Unwrapped token mint
     /// 5. `[]` Escrow unwrapped token authority
     ///    `get_wrapped_mint_authority(wrapped_mint)`
-    /// 6. `[]` SPL Token program for wrapped mint
-    /// 7. `[]` SPL Token program for unwrapped mint
+    /// 6. `[]` LPL Token program for wrapped mint
+    /// 7. `[]` LPL Token program for unwrapped mint
     /// 8. `[signer]` Transfer authority on wrapped token account
     /// 8..8+M. `[signer]` (Optional) M multisig signers on wrapped token
     /// account

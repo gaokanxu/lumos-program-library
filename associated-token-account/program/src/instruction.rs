@@ -21,7 +21,7 @@ pub enum AssociatedTokenAccountInstruction {
     ///   2. `[]` Wallet address for the new associated token account
     ///   3. `[]` The token mint for the new associated token account
     ///   4. `[]` System program
-    ///   5. `[]` SPL Token program
+    ///   5. `[]` LPL Token program
     Create,
     /// Creates an associated token account for the given wallet address and
     /// token mint, if it doesn't already exist.  Returns an error if the
@@ -32,7 +32,7 @@ pub enum AssociatedTokenAccountInstruction {
     ///   2. `[]` Wallet address for the new associated token account
     ///   3. `[]` The token mint for the new associated token account
     ///   4. `[]` System program
-    ///   5. `[]` SPL Token program
+    ///   5. `[]` LPL Token program
     CreateIdempotent,
     /// Transfers from and closes a nested associated token account: an
     /// associated token account owned by an associated token account.
@@ -52,7 +52,7 @@ pub enum AssociatedTokenAccountInstruction {
     ///   4. `[]` Token mint for the owner associated token account
     ///   5. `[writeable, signer]` Wallet address for the owner associated token
     ///      account
-    ///   6. `[]` SPL Token program
+    ///   6. `[]` LPL Token program
     RecoverNested,
 }
 

@@ -989,7 +989,7 @@ fn display_ui_extension(
         UiExtension::UnparseableExtension => writeln_name_value(
             f,
             "  Unparseable extension:",
-            "Consider upgrading to a newer version of spl-token",
+            "Consider upgrading to a newer version of lpl-token",
         ),
     }
 }

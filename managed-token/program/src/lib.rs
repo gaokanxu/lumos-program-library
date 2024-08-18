@@ -1,4 +1,4 @@
-lumos_program::declare_id!("mTok58Lg4YfcmwqyrDHpf7ogp599WRhzb6PxjaBqAxS");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");
 
 use {
     borsh::BorshDeserialize,

@@ -50,7 +50,7 @@ pub struct UpdateGroupAuthority {
 #[discriminator_hash_input("lpl_token_group_interface:initialize_member")]
 pub struct InitializeMember;
 
-/// All instructions that must be implemented in the SPL Token Group Interface
+/// All instructions that must be implemented in the LPL Token Group Interface
 #[derive(Clone, Debug, PartialEq)]
 pub enum TokenGroupInstruction {
     /// Initialize a new `Group`
@@ -103,19 +103,19 @@ impl TokenGroupInstruction {
         }
         let (discriminator, rest) = input.split_at(ArrayDiscriminator::LENGTH);
         Ok(match discriminator {
-            InitializeGroup::SPL_DISCRIMINATOR_SLICE => {
+            InitializeGroup::LPL_DISCRIMINATOR_SLICE => {
                 let data = pod_from_bytes::<InitializeGroup>(rest)?;
                 Self::InitializeGroup(*data)
             }
-            UpdateGroupMaxSize::SPL_DISCRIMINATOR_SLICE => {
+            UpdateGroupMaxSize::LPL_DISCRIMINATOR_SLICE => {
                 let data = pod_from_bytes::<UpdateGroupMaxSize>(rest)?;
                 Self::UpdateGroupMaxSize(*data)
             }
-            UpdateGroupAuthority::SPL_DISCRIMINATOR_SLICE => {
+            UpdateGroupAuthority::LPL_DISCRIMINATOR_SLICE => {
                 let data = pod_from_bytes::<UpdateGroupAuthority>(rest)?;
                 Self::UpdateGroupAuthority(*data)
             }
-            InitializeMember::SPL_DISCRIMINATOR_SLICE => {
+            InitializeMember::LPL_DISCRIMINATOR_SLICE => {
                 let data = pod_from_bytes::<InitializeMember>(rest)?;
                 Self::InitializeMember(*data)
             }
@@ -128,19 +128,19 @@ impl TokenGroupInstruction {
         let mut buf = vec![];
         match self {
             Self::InitializeGroup(data) => {
-                buf.extend_from_slice(InitializeGroup::SPL_DISCRIMINATOR_SLICE);
+                buf.extend_from_slice(InitializeGroup::LPL_DISCRIMINATOR_SLICE);
                 buf.extend_from_slice(pod_bytes_of(data));
             }
             Self::UpdateGroupMaxSize(data) => {
-                buf.extend_from_slice(UpdateGroupMaxSize::SPL_DISCRIMINATOR_SLICE);
+                buf.extend_from_slice(UpdateGroupMaxSize::LPL_DISCRIMINATOR_SLICE);
                 buf.extend_from_slice(pod_bytes_of(data));
             }
             Self::UpdateGroupAuthority(data) => {
-                buf.extend_from_slice(UpdateGroupAuthority::SPL_DISCRIMINATOR_SLICE);
+                buf.extend_from_slice(UpdateGroupAuthority::LPL_DISCRIMINATOR_SLICE);
                 buf.extend_from_slice(pod_bytes_of(data));
             }
             Self::InitializeMember(data) => {
-                buf.extend_from_slice(InitializeMember::SPL_DISCRIMINATOR_SLICE);
+                buf.extend_from_slice(InitializeMember::LPL_DISCRIMINATOR_SLICE);
                 buf.extend_from_slice(pod_bytes_of(data));
             }
         };

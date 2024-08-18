@@ -17,17 +17,17 @@ use lumos_program::{
 
 /// Legacy symbols from Memo v1
 pub mod v1 {
-    lumos_program::declare_id!("Memo1UhkJRfHyvLMcVucJwxXeuD728EqVDDwQDxFMNo");
+    lumos_program::declare_id!("unknown111111111111111111111111111111111111");
 }
 
-lumos_program::declare_id!("MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");
 
 /// Build a memo instruction, possibly signed
 ///
 /// Accounts expected by this instruction:
 ///
 ///   0. ..0+N. `[signer]` Expected signers; if zero provided, instruction will
-///     be processed as a normal, unsigned spl-memo
+///     be processed as a normal, unsigned lpl-memo
 pub fn build_memo(memo: &[u8], signer_pubkeys: &[&Pubkey]) -> Instruction {
     Instruction {
         program_id: id(),

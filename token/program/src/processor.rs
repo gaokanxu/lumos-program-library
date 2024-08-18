@@ -803,7 +803,7 @@ impl Processor {
         if account.is_initialized() {
             return Err(TokenError::AlreadyInUse.into());
         }
-        msg!("Please upgrade to SPL Token 2022 for immutable owner support");
+        msg!("Please upgrade to LPL Token 2022 for immutable owner support");
         Ok(())
     }
 

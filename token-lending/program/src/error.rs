@@ -36,13 +36,13 @@ pub enum LendingError {
     /// id.
     #[error("Input token account is not owned by the correct token program id")]
     InvalidTokenOwner,
-    /// Expected an SPL Token account
+    /// Expected an LPL Token account
     #[error("Input token account is not valid")]
     InvalidTokenAccount,
-    /// Expected an SPL Token mint
+    /// Expected an LPL Token mint
     #[error("Input token mint account is not valid")]
     InvalidTokenMint,
-    /// Expected a different SPL Token program
+    /// Expected a different LPL Token program
     #[error("Input token program account is not valid")]
     InvalidTokenProgram,
 

@@ -88,7 +88,7 @@ impl TransferHookInstruction {
         }
         let (discriminator, rest) = input.split_at(ArrayDiscriminator::LENGTH);
         Ok(match discriminator {
-            ExecuteInstruction::SPL_DISCRIMINATOR_SLICE => {
+            ExecuteInstruction::LPL_DISCRIMINATOR_SLICE => {
                 let amount = rest
                     .get(..8)
                     .and_then(|slice| slice.try_into().ok())
@@ -96,14 +96,14 @@ impl TransferHookInstruction {
                     .ok_or(ProgramError::InvalidInstructionData)?;
                 Self::Execute { amount }
             }
-            InitializeExtraAccountMetaListInstruction::SPL_DISCRIMINATOR_SLICE => {
+            InitializeExtraAccountMetaListInstruction::LPL_DISCRIMINATOR_SLICE => {
                 let pod_slice = PodSlice::<ExtraAccountMeta>::unpack(rest)?;
                 let extra_account_metas = pod_slice.data().to_vec();
                 Self::InitializeExtraAccountMetaList {
                     extra_account_metas,
                 }
             }
-            UpdateExtraAccountMetaListInstruction::SPL_DISCRIMINATOR_SLICE => {
+            UpdateExtraAccountMetaListInstruction::LPL_DISCRIMINATOR_SLICE => {
                 let pod_slice = PodSlice::<ExtraAccountMeta>::unpack(rest)?;
                 let extra_account_metas = pod_slice.data().to_vec();
                 Self::UpdateExtraAccountMetaList {
@@ -120,14 +120,14 @@ impl TransferHookInstruction {
         let mut buf = vec![];
         match self {
             Self::Execute { amount } => {
-                buf.extend_from_slice(ExecuteInstruction::SPL_DISCRIMINATOR_SLICE);
+                buf.extend_from_slice(ExecuteInstruction::LPL_DISCRIMINATOR_SLICE);
                 buf.extend_from_slice(&amount.to_le_bytes());
             }
             Self::InitializeExtraAccountMetaList {
                 extra_account_metas,
             } => {
                 buf.extend_from_slice(
-                    InitializeExtraAccountMetaListInstruction::SPL_DISCRIMINATOR_SLICE,
+                    InitializeExtraAccountMetaListInstruction::LPL_DISCRIMINATOR_SLICE,
                 );
                 buf.extend_from_slice(&(extra_account_metas.len() as u32).to_le_bytes());
                 buf.extend_from_slice(pod_slice_to_bytes(extra_account_metas));
@@ -136,7 +136,7 @@ impl TransferHookInstruction {
                 extra_account_metas,
             } => {
                 buf.extend_from_slice(
-                    UpdateExtraAccountMetaListInstruction::SPL_DISCRIMINATOR_SLICE,
+                    UpdateExtraAccountMetaListInstruction::LPL_DISCRIMINATOR_SLICE,
                 );
                 buf.extend_from_slice(&(extra_account_metas.len() as u32).to_le_bytes());
                 buf.extend_from_slice(pod_slice_to_bytes(extra_account_metas));
@@ -260,7 +260,7 @@ mod test {
         let amount = 111_111_111;
         let check = TransferHookInstruction::Execute { amount };
         let packed = check.pack();
-        // Please use ExecuteInstruction::SPL_DISCRIMINATOR in your program, the
+        // Please use ExecuteInstruction::LPL_DISCRIMINATOR in your program, the
         // following is just for test purposes
         let preimage = hash::hashv(&[format!("{NAMESPACE}:execute").as_bytes()]);
         let discriminator = &preimage.as_ref()[..ArrayDiscriminator::LENGTH];

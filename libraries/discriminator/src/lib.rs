@@ -84,13 +84,13 @@ mod tests {
     ) {
         let discriminator = build_discriminator(hash_input);
         assert_eq!(
-            T::SPL_DISCRIMINATOR,
+            T::LPL_DISCRIMINATOR,
             discriminator,
             "Discriminator mismatch: case: {}",
             hash_input
         );
         assert_eq!(
-            T::SPL_DISCRIMINATOR_SLICE,
+            T::LPL_DISCRIMINATOR_SLICE,
             discriminator.as_slice(),
             "Discriminator mismatch: case: {}",
             hash_input

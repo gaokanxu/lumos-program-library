@@ -17,4 +17,4 @@ mod entrypoint;
 // version
 pub use lumos_program;
 
-lumos_program::declare_id!("SwapsVeCiPHMUAtzQWZw7RjsKjgCjhwU55QGu4U1Szw");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");

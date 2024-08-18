@@ -1,6 +1,6 @@
-//! Canopy is way to cache the upper `N` levels of a SPL ConcurrentMerkleTree.
+//! Canopy is way to cache the upper `N` levels of a LPL ConcurrentMerkleTree.
 //!
-//! By caching the upper `N` levels of a depth `D` SPL ConcurrentMerkleTree,
+//! By caching the upper `N` levels of a depth `D` LPL ConcurrentMerkleTree,
 //! proofs can be truncated to the first `D - N` nodes. This helps reduce the size of account
 //! compression transactions, and makes it possible to
 //! modify trees up to depth 31, which store more than 1 billion leaves.
@@ -94,7 +94,7 @@ pub fn fill_in_proof_from_canopy(
     index: u32,
     proof: &mut Vec<Node>,
 ) -> Result<()> {
-    // 30 is hard coded as it is the current max depth that SPL Compression supports
+    // 30 is hard coded as it is the current max depth that LPL Compression supports
     let mut empty_node_cache = Box::new([EMPTY; 30]);
     check_canopy_bytes(canopy_bytes)?;
     let canopy = cast_slice::<u8, Node>(canopy_bytes);

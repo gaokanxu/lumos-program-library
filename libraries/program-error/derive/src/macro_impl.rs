@@ -11,8 +11,8 @@ use {
     },
 };
 
-const SPL_ERROR_HASH_NAMESPACE: &str = "lpl_program_error";
-const SPL_ERROR_HASH_MIN_VALUE: u32 = 7_000;
+const LPL_ERROR_HASH_NAMESPACE: &str = "lpl_program_error";
+const LPL_ERROR_HASH_MIN_VALUE: u32 = 7_000;
 
 /// The type of macro being called, thus directing which tokens to generate
 #[allow(clippy::enum_variant_names)]
@@ -179,7 +179,7 @@ fn set_first_discriminant(item_enum: &mut ItemEnum, error_code_start: u32) {
 /// Hashes the `SPL_ERROR_HASH_NAMESPACE` constant, the enum name and variant
 /// name and returns four middle bytes (13 through 16) as a u32.
 fn u32_from_hash(enum_ident: &Ident) -> u32 {
-    let hash_input = format!("{}:{}", SPL_ERROR_HASH_NAMESPACE, enum_ident);
+    let hash_input = format!("{}:{}", LPL_ERROR_HASH_NAMESPACE, enum_ident);
 
     // We don't want our error code to start at any number below
     // `SPL_ERROR_HASH_MIN_VALUE`!
@@ -192,7 +192,7 @@ fn u32_from_hash(enum_ident: &Ident) -> u32 {
                 .try_into()
                 .expect("Unable to convert hash to u32"),
         );
-        if d >= SPL_ERROR_HASH_MIN_VALUE {
+        if d >= LPL_ERROR_HASH_MIN_VALUE {
             return d;
         }
         nonce += 1;

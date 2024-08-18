@@ -188,7 +188,7 @@ pub enum GovernanceError {
     #[error("Mint has no authority")]
     MintHasNoAuthority, // 542
 
-    /// ---- SPL Token Tools Errors ----
+    /// ---- LPL Token Tools Errors ----
 
     /// Invalid Token account owner
     #[error("Invalid Token account owner")]

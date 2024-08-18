@@ -12,4 +12,4 @@ pub mod precise_number;
 pub mod processor;
 pub mod uint;
 
-lumos_program::declare_id!("Math111111111111111111111111111111111111111");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");

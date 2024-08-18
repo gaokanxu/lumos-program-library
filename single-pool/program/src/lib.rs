@@ -16,7 +16,7 @@ pub mod entrypoint;
 pub use lumos_program;
 use lumos_program::{pubkey::Pubkey, stake};
 
-lumos_program::declare_id!("SVSPxpvHdN29nkVg9rPapPNDddN5DipNLRUFhyjFThE");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");
 
 const POOL_PREFIX: &[u8] = b"pool";
 const POOL_STAKE_PREFIX: &[u8] = b"stake";

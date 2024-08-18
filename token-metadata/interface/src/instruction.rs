@@ -82,7 +82,7 @@ pub struct Emit {
 pub enum TokenMetadataInstruction {
     /// Initializes a TLV entry with the basic token-metadata fields.
     ///
-    /// Assumes that the provided mint is an SPL token mint, that the metadata
+    /// Assumes that the provided mint is an LPL token mint, that the metadata
     /// account is allocated and assigned to the program, and that the metadata
     /// account has enough lamports to cover the rent-exempt reserve.
     ///
@@ -170,23 +170,23 @@ impl TokenMetadataInstruction {
         }
         let (discriminator, rest) = input.split_at(ArrayDiscriminator::LENGTH);
         Ok(match discriminator {
-            Initialize::SPL_DISCRIMINATOR_SLICE => {
+            Initialize::LPL_DISCRIMINATOR_SLICE => {
                 let data = Initialize::try_from_slice(rest)?;
                 Self::Initialize(data)
             }
-            UpdateField::SPL_DISCRIMINATOR_SLICE => {
+            UpdateField::LPL_DISCRIMINATOR_SLICE => {
                 let data = UpdateField::try_from_slice(rest)?;
                 Self::UpdateField(data)
             }
-            RemoveKey::SPL_DISCRIMINATOR_SLICE => {
+            RemoveKey::LPL_DISCRIMINATOR_SLICE => {
                 let data = RemoveKey::try_from_slice(rest)?;
                 Self::RemoveKey(data)
             }
-            UpdateAuthority::SPL_DISCRIMINATOR_SLICE => {
+            UpdateAuthority::LPL_DISCRIMINATOR_SLICE => {
                 let data = UpdateAuthority::try_from_slice(rest)?;
                 Self::UpdateAuthority(data)
             }
-            Emit::SPL_DISCRIMINATOR_SLICE => {
+            Emit::LPL_DISCRIMINATOR_SLICE => {
                 let data = Emit::try_from_slice(rest)?;
                 Self::Emit(data)
             }
@@ -200,23 +200,23 @@ impl TokenMetadataInstruction {
         let mut buf = vec![];
         match self {
             Self::Initialize(data) => {
-                buf.extend_from_slice(Initialize::SPL_DISCRIMINATOR_SLICE);
+                buf.extend_from_slice(Initialize::LPL_DISCRIMINATOR_SLICE);
                 buf.append(&mut borsh::to_vec(data).unwrap());
             }
             Self::UpdateField(data) => {
-                buf.extend_from_slice(UpdateField::SPL_DISCRIMINATOR_SLICE);
+                buf.extend_from_slice(UpdateField::LPL_DISCRIMINATOR_SLICE);
                 buf.append(&mut borsh::to_vec(data).unwrap());
             }
             Self::RemoveKey(data) => {
-                buf.extend_from_slice(RemoveKey::SPL_DISCRIMINATOR_SLICE);
+                buf.extend_from_slice(RemoveKey::LPL_DISCRIMINATOR_SLICE);
                 buf.append(&mut borsh::to_vec(data).unwrap());
             }
             Self::UpdateAuthority(data) => {
-                buf.extend_from_slice(UpdateAuthority::SPL_DISCRIMINATOR_SLICE);
+                buf.extend_from_slice(UpdateAuthority::LPL_DISCRIMINATOR_SLICE);
                 buf.append(&mut borsh::to_vec(data).unwrap());
             }
             Self::Emit(data) => {
-                buf.extend_from_slice(Emit::SPL_DISCRIMINATOR_SLICE);
+                buf.extend_from_slice(Emit::LPL_DISCRIMINATOR_SLICE);
                 buf.append(&mut borsh::to_vec(data).unwrap());
             }
         };

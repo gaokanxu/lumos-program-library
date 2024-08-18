@@ -4,7 +4,7 @@
 pub const DECIMALS: u8 = 9;
 
 // The Mint for native LUM Token accounts
-lumos_program::declare_id!("Lo11111111111111111111111111111111111111112");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");
 
 #[cfg(test)]
 mod tests {

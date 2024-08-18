@@ -12,7 +12,7 @@ pub mod state;
 pub use lumos_program;
 use lumos_program::pubkey::Pubkey;
 
-lumos_program::declare_id!("TwRapQCDhWkZRrDaHfZGuHxkZ91gHDRkyuzNqeU5MgR");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");
 
 const WRAPPED_MINT_SEED: &[u8] = br"mint";
 
@@ -50,7 +50,7 @@ pub(crate) fn _get_wrapped_mint_signer_seeds<'a>(
     ]
 }
 
-/// Derive the SPL Token wrapped mint address associated with an unwrapped mint
+/// Derive the LPL Token wrapped mint address associated with an unwrapped mint
 pub fn get_wrapped_mint_address(
     unwrapped_mint: &Pubkey,
     wrapped_token_program_id: &Pubkey,
@@ -79,7 +79,7 @@ pub(crate) fn get_wrapped_mint_authority_with_seed(wrapped_mint: &Pubkey) -> (Pu
     Pubkey::find_program_address(&get_wrapped_mint_authority_seeds(wrapped_mint), &id())
 }
 
-/// Derive the SPL Token wrapped mint authority address
+/// Derive the LPL Token wrapped mint authority address
 pub fn get_wrapped_mint_authority(wrapped_mint: &Pubkey) -> Pubkey {
     get_wrapped_mint_authority_with_seed(wrapped_mint).0
 }
@@ -110,7 +110,7 @@ pub(crate) fn get_wrapped_mint_backpointer_address_with_seed(
     )
 }
 
-/// Derive the SPL Token wrapped mint backpointer address
+/// Derive the LPL Token wrapped mint backpointer address
 pub fn get_wrapped_mint_backpointer_address(wrapped_mint: &Pubkey) -> Pubkey {
     get_wrapped_mint_backpointer_address_with_seed(wrapped_mint).0
 }

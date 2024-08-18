@@ -43,7 +43,7 @@ pub enum ConfidentialTransferInstruction {
     ///
     /// Accounts expected by this instruction:
     ///
-    ///   0. `[writable]` The SPL Token mint.
+    ///   0. `[writable]` The LPL Token mint.
     ///
     /// Data expected by this instruction:
     ///   `InitializeMintData`
@@ -56,7 +56,7 @@ pub enum ConfidentialTransferInstruction {
     ///
     /// Accounts expected by this instruction:
     ///
-    ///   0. `[writable]` The SPL Token mint.
+    ///   0. `[writable]` The LPL Token mint.
     ///   1. `[signer]` Confidential transfer mint authority.
     ///
     /// Data expected by this instruction:
@@ -84,8 +84,8 @@ pub enum ConfidentialTransferInstruction {
     /// Accounts expected by this instruction:
     ///
     ///   * Single owner/delegate
-    ///   0. `[writeable]` The SPL Token account.
-    ///   1. `[]` The corresponding SPL Token mint.
+    ///   0. `[writeable]` The LPL Token account.
+    ///   1. `[]` The corresponding LPL Token mint.
     ///   2. `[]` Instructions sysvar if `VerifyPubkeyValidityProof` is included
     ///      in the same transaction or context state account if
     ///      `VerifyPubkeyValidityProof` is pre-verified into a context state
@@ -93,14 +93,14 @@ pub enum ConfidentialTransferInstruction {
     ///   3. `[signer]` The single source account owner.
     ///
     ///   * Multisignature owner/delegate
-    ///   0. `[writeable]` The SPL Token account.
-    ///   1. `[]` The corresponding SPL Token mint.
+    ///   0. `[writeable]` The LPL Token account.
+    ///   1. `[]` The corresponding LPL Token mint.
     ///   2. `[]` Instructions sysvar if `VerifyPubkeyValidityProof` is included
     ///      in the same transaction or context state account if
     ///      `VerifyPubkeyValidityProof` is pre-verified into a context state
     ///      account.
     ///   3. `[]` The multisig source account owner.
-    ///   4.. `[signer]` Required M signer accounts for the SPL Token Multisig
+    ///   4.. `[signer]` Required M signer accounts for the LPL Token Multisig
     /// account.
     ///
     /// Data expected by this instruction:
@@ -111,14 +111,14 @@ pub enum ConfidentialTransferInstruction {
     ///
     /// Approval is only required when the
     /// `ConfidentialTransferMint::approve_new_accounts` field is set in the
-    /// SPL Token mint.  This instruction must be executed after the account
+    /// LPL Token mint.  This instruction must be executed after the account
     /// owner configures their account for confidential transfers with
     /// `ConfidentialTransferInstruction::ConfigureAccount`.
     ///
     /// Accounts expected by this instruction:
     ///
-    ///   0. `[writable]` The SPL Token account to approve.
-    ///   1. `[]` The SPL Token mint.
+    ///   0. `[writable]` The LPL Token account to approve.
+    ///   1. `[]` The LPL Token mint.
     ///   2. `[signer]` Confidential transfer mint authority.
     ///
     /// Data expected by this instruction:
@@ -146,7 +146,7 @@ pub enum ConfidentialTransferInstruction {
     /// context state account for the proof must be provided.
     ///
     ///   * Single owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[]` Instructions sysvar if `VerifyZeroBalanceProof` is included in
     ///      the same transaction or context state account if
     ///      `VerifyZeroBalanceProof` is pre-verified into a context state
@@ -154,20 +154,20 @@ pub enum ConfidentialTransferInstruction {
     ///   2. `[signer]` The single account owner.
     ///
     ///   * Multisignature owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[]` Instructions sysvar if `VerifyZeroBalanceProof` is included in
     ///      the same transaction or context state account if
     ///      `VerifyZeroBalanceProof` is pre-verified into a context state
     ///      account.
     ///   2. `[]` The multisig account owner.
-    ///   3.. `[signer]` Required M signer accounts for the SPL Token Multisig
+    ///   3.. `[signer]` Required M signer accounts for the LPL Token Multisig
     /// account.
     ///
     /// Data expected by this instruction:
     ///   `EmptyAccountInstructionData`
     EmptyAccount,
 
-    /// Deposit SPL Tokens into the pending balance of a confidential token
+    /// Deposit LPL Tokens into the pending balance of a confidential token
     /// account.
     ///
     /// The account owner can then invoke the `ApplyPendingBalance` instruction
@@ -180,22 +180,22 @@ pub enum ConfidentialTransferInstruction {
     /// Accounts expected by this instruction:
     ///
     ///   * Single owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[]` The token mint.
     ///   2. `[signer]` The single account owner or delegate.
     ///
     ///   * Multisignature owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[]` The token mint.
     ///   2. `[]` The multisig account owner or delegate.
-    ///   3.. `[signer]` Required M signer accounts for the SPL Token Multisig
+    ///   3.. `[signer]` Required M signer accounts for the LPL Token Multisig
     /// account.
     ///
     /// Data expected by this instruction:
     ///   `DepositInstructionData`
     Deposit,
 
-    /// Withdraw SPL Tokens from the available balance of a confidential token
+    /// Withdraw LPL Tokens from the available balance of a confidential token
     /// account.
     ///
     /// Fails if the source or destination accounts are frozen.
@@ -209,7 +209,7 @@ pub enum ConfidentialTransferInstruction {
     /// Accounts expected by this instruction:
     ///
     ///   * Single owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[]` The token mint.
     ///   2. `[]` Instructions sysvar if `VerifyWithdraw` is included in the
     ///      same transaction or context state account if `VerifyWithdraw` is
@@ -217,13 +217,13 @@ pub enum ConfidentialTransferInstruction {
     ///   3. `[signer]` The single source account owner.
     ///
     ///   * Multisignature owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[]` The token mint.
     ///   2. `[]` Instructions sysvar if `VerifyWithdraw` is included in the
     ///      same transaction or context state account if `VerifyWithdraw` is
     ///      pre-verified into a context state account.
     ///   3. `[]` The multisig  source account owner.
-    ///   4.. `[signer]` Required M signer accounts for the SPL Token Multisig
+    ///   4.. `[signer]` Required M signer accounts for the LPL Token Multisig
     /// account.
     ///
     /// Data expected by this instruction:
@@ -241,9 +241,9 @@ pub enum ConfidentialTransferInstruction {
     /// Fails if the associated mint is extended as `NonTransferable`.
     ///
     ///   * Single owner/delegate
-    ///   1. `[writable]` The source SPL Token account.
+    ///   1. `[writable]` The source LPL Token account.
     ///   2. `[]` The token mint.
-    ///   3. `[writable]` The destination SPL Token account.
+    ///   3. `[writable]` The destination LPL Token account.
     ///   4. `[]` Instructions sysvar if `VerifyTransfer` or
     ///      `VerifyTransferWithFee` is included in the same transaction or
     ///      context state account if these proofs are pre-verified into a
@@ -251,15 +251,15 @@ pub enum ConfidentialTransferInstruction {
     ///   5. `[signer]` The single source account owner.
     ///
     ///   * Multisignature owner/delegate
-    ///   1. `[writable]` The source SPL Token account.
+    ///   1. `[writable]` The source LPL Token account.
     ///   2. `[]` The token mint.
-    ///   3. `[writable]` The destination SPL Token account.
+    ///   3. `[writable]` The destination LPL Token account.
     ///   4. `[]` Instructions sysvar if `VerifyTransfer` or
     ///      `VerifyTransferWithFee` is included in the same transaction or
     ///      context state account if these proofs are pre-verified into a
     ///      context state account.
     ///   5. `[]` The multisig  source account owner.
-    ///   6.. `[signer]` Required M signer accounts for the SPL Token Multisig
+    ///   6.. `[signer]` Required M signer accounts for the LPL Token Multisig
     /// account.
     ///
     /// Data expected by this instruction:
@@ -281,13 +281,13 @@ pub enum ConfidentialTransferInstruction {
     /// Account expected by this instruction:
     ///
     ///   * Single owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[signer]` The single account owner.
     ///
     ///   * Multisignature owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[]` The multisig account owner.
-    ///   2.. `[signer]` Required M signer accounts for the SPL Token Multisig
+    ///   2.. `[signer]` Required M signer accounts for the LPL Token Multisig
     /// account.
     ///
     /// Data expected by this instruction:
@@ -300,13 +300,13 @@ pub enum ConfidentialTransferInstruction {
     /// Accounts expected by this instruction:
     ///
     ///   * Single owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[signer]` Single authority.
     ///
     ///   * Multisignature owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[]` Multisig authority.
-    ///   2.. `[signer]` Required M signer accounts for the SPL Token Multisig
+    ///   2.. `[signer]` Required M signer accounts for the LPL Token Multisig
     /// account.
     ///
     /// Data expected by this instruction:
@@ -325,13 +325,13 @@ pub enum ConfidentialTransferInstruction {
     /// Accounts expected by this instruction:
     ///
     ///   * Single owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[signer]` The single account owner.
     ///
     ///   * Multisignature owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[]` The multisig account owner.
-    ///   2.. `[signer]` Required M signer accounts for the SPL Token Multisig
+    ///   2.. `[signer]` Required M signer accounts for the LPL Token Multisig
     /// account.
     ///
     /// Data expected by this instruction:
@@ -344,13 +344,13 @@ pub enum ConfidentialTransferInstruction {
     /// Accounts expected by this instruction:
     ///
     ///   * Single owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[signer]` The single account owner.
     ///
     ///   * Multisignature owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[]` The multisig account owner.
-    ///   2.. `[signer]` Required M signer accounts for the SPL Token Multisig
+    ///   2.. `[signer]` Required M signer accounts for the LPL Token Multisig
     /// account.
     ///
     /// Data expected by this instruction:
@@ -366,13 +366,13 @@ pub enum ConfidentialTransferInstruction {
     /// Accounts expected by this instruction:
     ///
     ///   * Single owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[signer]` The single account owner.
     ///
     ///   * Multisignature owner/delegate
-    ///   0. `[writable]` The SPL Token account.
+    ///   0. `[writable]` The LPL Token account.
     ///   1. `[]` The multisig account owner.
-    ///   2.. `[signer]` Required M signer accounts for the SPL Token Multisig
+    ///   2.. `[signer]` Required M signer accounts for the LPL Token Multisig
     /// account.
     ///
     /// Data expected by this instruction:
@@ -391,9 +391,9 @@ pub enum ConfidentialTransferInstruction {
     /// associated mint is extended as `NonTransferable`.
     ///
     ///   * Transfer without fee
-    ///   1. `[writable]` The source SPL Token account.
+    ///   1. `[writable]` The source LPL Token account.
     ///   2. `[]` The token mint.
-    ///   3. `[writable]` The destination SPL Token account.
+    ///   3. `[writable]` The destination LPL Token account.
     ///   4. `[]` Context state account for
     ///      `VerifyCiphertextCommitmentEqualityProof`.
     ///   5. `[]` Context state account for
@@ -409,9 +409,9 @@ pub enum ConfidentialTransferInstruction {
     ///   10. `[signer]` The source account owner.
     ///
     ///   * Transfer with fee
-    ///   1. `[writable]` The source SPL Token account.
+    ///   1. `[writable]` The source LPL Token account.
     ///   2. `[]` The token mint.
-    ///   3. `[writable]` The destination SPL Token account.
+    ///   3. `[writable]` The destination LPL Token account.
     ///   4. `[]` Context state account for
     ///      `VerifyCiphertextCommitmentEqualityProof`.
     ///   5. `[]` Context state account for

@@ -40,7 +40,7 @@ pub struct TokenMetadata {
 }
 impl SplDiscriminate for TokenMetadata {
     /// Please use this discriminator in your program when matching
-    const SPL_DISCRIMINATOR: ArrayDiscriminator =
+    const LPL_DISCRIMINATOR: ArrayDiscriminator =
         ArrayDiscriminator::new([112, 132, 90, 90, 11, 88, 157, 87]);
 }
 impl TokenMetadata {
@@ -132,7 +132,7 @@ mod tests {
         let preimage = hash::hashv(&[format!("{NAMESPACE}:token_metadata").as_bytes()]);
         let discriminator =
             ArrayDiscriminator::try_from(&preimage.as_ref()[..ArrayDiscriminator::LENGTH]).unwrap();
-        assert_eq!(TokenMetadata::SPL_DISCRIMINATOR, discriminator);
+        assert_eq!(TokenMetadata::LPL_DISCRIMINATOR, discriminator);
     }
 
     #[test]

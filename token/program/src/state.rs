@@ -293,8 +293,8 @@ fn unpack_coption_u64(src: &[u8; 12]) -> Result<COption<u64>, ProgramError> {
     }
 }
 
-const SPL_TOKEN_ACCOUNT_MINT_OFFSET: usize = 0;
-const SPL_TOKEN_ACCOUNT_OWNER_OFFSET: usize = 32;
+const LPL_TOKEN_ACCOUNT_MINT_OFFSET: usize = 0;
+const LPL_TOKEN_ACCOUNT_OWNER_OFFSET: usize = 32;
 
 /// A trait for token Account structs to enable efficiently unpacking various
 /// fields without unpacking the complete state.
@@ -305,13 +305,13 @@ pub trait GenericTokenAccount {
     /// Call after account length has already been verified to unpack the
     /// account owner
     fn unpack_account_owner_unchecked(account_data: &[u8]) -> &Pubkey {
-        Self::unpack_pubkey_unchecked(account_data, SPL_TOKEN_ACCOUNT_OWNER_OFFSET)
+        Self::unpack_pubkey_unchecked(account_data, LPL_TOKEN_ACCOUNT_OWNER_OFFSET)
     }
 
     /// Call after account length has already been verified to unpack the
     /// account mint
     fn unpack_account_mint_unchecked(account_data: &[u8]) -> &Pubkey {
-        Self::unpack_pubkey_unchecked(account_data, SPL_TOKEN_ACCOUNT_MINT_OFFSET)
+        Self::unpack_pubkey_unchecked(account_data, LPL_TOKEN_ACCOUNT_MINT_OFFSET)
     }
 
     /// Call after account length has already been verified to unpack a Pubkey

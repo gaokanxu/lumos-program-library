@@ -12,7 +12,7 @@ pub mod processor;
 pub use lumos_program;
 use lumos_program::pubkey::Pubkey;
 
-lumos_program::declare_id!("TkupDoNseygccBCjSsrSpMccjwHfTYwcrjpnDSrFDhC");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");
 
 const TOKEN_ESCROW_AUTHORITY_SEED: &[u8] = b"token-escrow-authority";
 

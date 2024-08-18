@@ -1,4 +1,4 @@
-//! State needed to manipulate SPL ConcurrentMerkleTrees
+//! State needed to manipulate LPL ConcurrentMerkleTrees
 mod concurrent_merkle_tree_header;
 mod path_node;
 

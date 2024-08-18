@@ -32,7 +32,7 @@ pub enum PoolError {
     /// Lamport balance below rent-exempt threshold.
     #[error("Lamport balance below rent-exempt threshold")]
     NotRentExempt,
-    /// Expected an SPL Token mint
+    /// Expected an LPL Token mint
     #[error("Input token mint account is not valid")]
     InvalidTokenMint,
     /// Amount should be more than zero

@@ -14,7 +14,7 @@ pub enum CompressionAccountType {
     /// Uninitialized
     Uninitialized,
 
-    /// SPL ConcurrentMerkleTree data structure, may include a Canopy
+    /// LPL ConcurrentMerkleTree data structure, may include a Canopy
     ConcurrentMerkleTree,
 }
 
@@ -24,7 +24,7 @@ impl std::fmt::Display for CompressionAccountType {
     }
 }
 
-/// Initialization parameters for an SPL ConcurrentMerkleTree.
+/// Initialization parameters for an LPL ConcurrentMerkleTree.
 ///
 /// Only the following permutations are valid:
 ///
@@ -52,7 +52,7 @@ pub struct ConcurrentMerkleTreeHeaderDataV1 {
     /// Must be a power of 2; see above table for valid combinations.
     max_buffer_size: u32,
 
-    /// Depth of the SPL ConcurrentMerkleTree to store.
+    /// Depth of the LPL ConcurrentMerkleTree to store.
     /// Tree capacity can be calculated as power(2, max_depth).
     /// See above table for valid options.
     max_depth: u32,
@@ -66,7 +66,7 @@ pub struct ConcurrentMerkleTreeHeaderDataV1 {
     creation_slot: u64,
 
     /// Needs padding for the account to be 8-byte aligned
-    /// 8-byte alignment is necessary to zero-copy the SPL ConcurrentMerkleTree
+    /// 8-byte alignment is necessary to zero-copy the LPL ConcurrentMerkleTree
     _padding: [u8; 6],
 }
 

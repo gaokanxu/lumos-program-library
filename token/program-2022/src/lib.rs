@@ -93,9 +93,9 @@ pub fn try_ui_amount_into_amount(ui_amount: String, decimals: u8) -> Result<u64,
         .map_err(|_| ProgramError::InvalidArgument)
 }
 
-lumos_program::declare_id!("TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");
 
-/// Checks that the supplied program ID is correct for spl-token-2022
+/// Checks that the supplied program ID is correct for lpl-token-2022
 pub fn check_program_account(lpl_token_program_id: &Pubkey) -> ProgramResult {
     if lpl_token_program_id != &id() {
         return Err(ProgramError::IncorrectProgramId);
@@ -103,8 +103,8 @@ pub fn check_program_account(lpl_token_program_id: &Pubkey) -> ProgramResult {
     Ok(())
 }
 
-/// Checks that the supplied program ID is correct for spl-token or
-/// spl-token-2022
+/// Checks that the supplied program ID is correct for lpl-token or
+/// lpl-token-2022
 pub fn check_lpl_token_program_account(lpl_token_program_id: &Pubkey) -> ProgramResult {
     if lpl_token_program_id != &id() && lpl_token_program_id != &lpl_token::id() {
         return Err(ProgramError::IncorrectProgramId);

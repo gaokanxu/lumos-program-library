@@ -31,13 +31,13 @@ pub enum SwapError {
     InvalidOutputOwner,
     /// The deserialization of the account returned something besides
     /// State::Mint.
-    #[error("Deserialized account is not an SPL Token mint")]
+    #[error("Deserialized account is not an LPL Token mint")]
     ExpectedMint,
 
     // 5.
     /// The deserialization of the account returned something besides
     /// State::Account.
-    #[error("Deserialized account is not an SPL Token account")]
+    #[error("Deserialized account is not an LPL Token account")]
     ExpectedAccount,
     /// The input token account is empty.
     #[error("Input token account empty")]
@@ -149,9 +149,9 @@ impl PrintProgramError for SwapError {
             SwapError::InvalidOutputOwner => {
                 msg!("Error: Output pool account owner cannot be the program address")
             }
-            SwapError::ExpectedMint => msg!("Error: Deserialized account is not an SPL Token mint"),
+            SwapError::ExpectedMint => msg!("Error: Deserialized account is not an LPL Token mint"),
             SwapError::ExpectedAccount => {
-                msg!("Error: Deserialized account is not an SPL Token account")
+                msg!("Error: Deserialized account is not an LPL Token account")
             }
             SwapError::EmptySupply => msg!("Error: Input token account empty"),
             SwapError::InvalidSupply => msg!("Error: Pool token mint has a non-zero supply"),

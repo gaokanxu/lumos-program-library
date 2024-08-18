@@ -14,4 +14,4 @@ mod entrypoint;
 pub use lumos_program;
 
 // Binary Oracle Pair id
-lumos_program::declare_id!("Fd7btgySsrjuo25CJCj7oE7VPMyezDhnx7pZkj2v69Nk");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");

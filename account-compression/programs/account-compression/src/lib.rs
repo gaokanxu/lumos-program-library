@@ -1,25 +1,25 @@
-//! SPL Account Compression is an on-chain program that exposes an interface to manipulating SPL ConcurrentMerkleTrees
+//! LPL Account Compression is an on-chain program that exposes an interface to manipulating LPL ConcurrentMerkleTrees
 //!
 //! A buffer of proof-like changelogs is stored on-chain that allow multiple proof-based writes to succeed within the same slot.
 //! This is accomplished by fast-forwarding out-of-date (or possibly invalid) proofs based on information stored in the changelogs.
 //! See a copy of the whitepaper [here](https://drive.google.com/file/d/1BOpa5OFmara50fTvL0VIVYjtg-qzHCVc/view)
 //!
 //! To circumvent proof size restrictions stemming from Lumos transaction size restrictions,
-//! SPL Account Compression also provides the ability to cache the upper most leaves of the
+//! LPL Account Compression also provides the ability to cache the upper most leaves of the
 //! concurrent merkle tree. This is called the "canopy", and is stored at the end of the
 //! ConcurrentMerkleTreeAccount. More information can be found in the initialization instruction
 //! documentation.
 //!
-//! While SPL ConcurrentMerkleTrees can generically store arbitrary information,
+//! While LPL ConcurrentMerkleTrees can generically store arbitrary information,
 //! one exemplified use-case is the [Bubblegum](https://github.com/metaplex-foundation/metaplex-program-library/tree/master/bubblegum) contract,
 //! which uses SPL-Compression to store encoded information about NFTs.
 //! The use of SPL-Compression within Bubblegum allows for:
 //! - up to 1 billion NFTs to be stored in a single account on-chain (>10,000x decrease in on-chain cost)
 //! - up to 2048 concurrent updates per slot
 //!
-//! Operationally, SPL ConcurrentMerkleTrees **must** be supplemented by off-chain indexers to cache information
+//! Operationally, LPL ConcurrentMerkleTrees **must** be supplemented by off-chain indexers to cache information
 //! about leafs and to power an API that can supply up-to-date proofs to allow updates to the tree.
-//! All modifications to SPL ConcurrentMerkleTrees are settled on the Lumos ledger via instructions against the SPL Compression contract.
+//! All modifications to LPL ConcurrentMerkleTrees are settled on the Lumos ledger via instructions against the LPL Compression contract.
 //! A production-ready indexer (Plerkle) can be found in the [Metaplex program library](https://github.com/metaplex-foundation/digital-asset-validator-plugin)
 
 use anchor_lang::{
@@ -59,7 +59,7 @@ pub use lpl_concurrent_merkle_tree::{
 
 declare_id!("cmtDvXumGCrqC1Age74AVPhSRVXJMd8PJS91L8KbNCK");
 
-/// Context for initializing a new SPL ConcurrentMerkleTree
+/// Context for initializing a new LPL ConcurrentMerkleTree
 #[derive(Accounts)]
 pub struct Initialize<'info> {
     #[account(zero)]
@@ -92,7 +92,7 @@ pub struct Modify<'info> {
     pub noop: Program<'info, Noop>,
 }
 
-/// Context for validating a provided proof against the SPL ConcurrentMerkleTree.
+/// Context for validating a provided proof against the LPL ConcurrentMerkleTree.
 /// Throws an error if provided proof is invalid.
 #[derive(Accounts)]
 pub struct VerifyLeaf<'info> {
@@ -140,7 +140,7 @@ pub mod lpl_account_compression {
     /// generated for the next replace instruction.
     ///
     /// Concurrency limit should be determined by empirically testing the demand for
-    /// state built on top of SPL Compression.
+    /// state built on top of LPL Compression.
     ///
     /// For instructions on enabling the canopy, see [canopy].
     pub fn init_empty_merkle_tree(

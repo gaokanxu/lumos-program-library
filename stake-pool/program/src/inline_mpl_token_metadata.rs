@@ -2,7 +2,7 @@
 //! `mpl-token-metadata' NOTE: this file is sym-linked in `spl-single-pool`, so
 //! be careful with changes!
 
-lumos_program::declare_id!("metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");
 
 pub(crate) mod instruction {
     use {

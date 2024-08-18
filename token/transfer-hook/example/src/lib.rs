@@ -26,5 +26,5 @@ pub use lumos_program;
 /// unsafe, this simple example implementation only allows for one mint.
 #[cfg(feature = "forbid-additional-mints")]
 pub mod mint {
-    lumos_program::declare_id!("Mint111111111111111111111111111111111111111");
+    lumos_program::declare_id!("unknown111111111111111111111111111111111111");
 }

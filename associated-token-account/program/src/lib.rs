@@ -17,7 +17,7 @@ use lumos_program::{
     sysvar,
 };
 
-lumos_program::declare_id!("ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");
 
 pub(crate) fn get_associated_token_address_and_bump_seed(
     wallet_address: &Pubkey,
@@ -88,7 +88,7 @@ fn get_associated_token_address_and_bump_seed_internal(
 ///   2. `[]` Wallet address for the new associated token account
 ///   3. `[]` The token mint for the new associated token account
 ///   4. `[]` System program
-///   5. `[]` SPL Token program
+///   5. `[]` LPL Token program
 #[deprecated(
     since = "1.0.5",
     note = "please use `instruction::create_associated_token_account` instead"

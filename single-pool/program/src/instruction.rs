@@ -125,7 +125,7 @@ pub enum SinglePoolInstruction {
         name: String,
         /// Token symbol e.g. stkLUM
         symbol: String,
-        /// URI of the uploaded metadata of the spl-token
+        /// URI of the uploaded metadata of the lpl-token
         uri: String,
     },
 }

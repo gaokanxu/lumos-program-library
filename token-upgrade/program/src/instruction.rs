@@ -30,8 +30,8 @@ pub enum TokenUpgradeInstruction {
     ///      held by PDA, must be:
     ///      `get_token_upgrade_authority_address(original_mint, new_mint,
     ///      program_id)`
-    ///   6. `[]` SPL Token program for original mint
-    ///   7. `[]` SPL Token program for new mint
+    ///   6. `[]` LPL Token program for original mint
+    ///   7. `[]` LPL Token program for new mint
     ///   8. `[]` Original token account transfer authority (owner or delegate)
     ///   9. ..9+M `[signer]` M multisig signer accounts
     ///

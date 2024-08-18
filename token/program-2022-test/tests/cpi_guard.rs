@@ -29,7 +29,7 @@ use {
     std::sync::Arc,
 };
 
-// set up a bank and bank client with spl token 2022 and the instruction padder
+// set up a bank and bank client with lpl token 2022 and the instruction padder
 // also creates a token with no extensions and inits two token accounts
 async fn make_context() -> TestContext {
     // TODO this may be removed when we upgrade to a lumos version with a fixed

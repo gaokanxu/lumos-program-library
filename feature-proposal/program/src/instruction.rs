@@ -54,7 +54,7 @@ pub enum FeatureProposalInstruction {
     /// 5. `[writeable]` Feature id account address from
     ///    `get_feature_id_address`
     /// 6. `[]` System program
-    /// 7. `[]` SPL Token program
+    /// 7. `[]` LPL Token program
     /// 8. `[]` Rent sysvar
     Propose {
         /// Total number of tokens to mint for this proposal

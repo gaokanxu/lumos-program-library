@@ -11,4 +11,4 @@ pub mod validation_utils;
 // version
 pub use lumos_program;
 
-lumos_program::declare_id!("betw959P4WToez4DkuXwNsJszqbpe3HuY56AcG5yevx");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");

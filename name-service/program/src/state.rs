@@ -23,7 +23,7 @@ pub struct NameRecordHeader {
     // The owner of this name
     pub owner: Pubkey,
 
-    // The class of data this account represents (DNS record, twitter handle, SPL Token
+    // The class of data this account represents (DNS record, twitter handle, LPL Token
     // name/symbol, etc)
     //
     // If `Pubkey::default()` the data is unspecified.

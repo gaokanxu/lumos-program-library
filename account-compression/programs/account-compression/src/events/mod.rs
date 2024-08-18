@@ -1,5 +1,5 @@
 //! Anchor events are used to emit information necessary to
-//! index changes made to a SPL ConcurrentMerkleTree
+//! index changes made to a LPL ConcurrentMerkleTree
 
 use anchor_lang::prelude::*;
 

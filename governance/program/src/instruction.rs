@@ -45,7 +45,7 @@ pub enum GovernanceInstruction {
     ///     The account will be created with the Realm PDA as its owner
     /// 4. `[signer]` Payer
     /// 5. `[]` System
-    /// 6. `[]` SPL Token
+    /// 6. `[]` LPL Token
     /// 7. `[]` Sysvar Rent
     /// 8. `[]` Council Token Mint - optional
     /// 9. `[writable]` Council Token Holding account - optional unless council
@@ -79,7 +79,7 @@ pub enum GovernanceInstruction {
     ///  1. `[writable]` Governing Token Holding account.
     ///     * PDA seeds: ['governance',realm, governing_token_mint]
     ///  2. `[writable]` Governing Token Source account. It can be either
-    ///     spl-token TokenAccount or MintAccount Tokens will be transferred or
+    ///     lpl-token TokenAccount or MintAccount Tokens will be transferred or
     ///     minted to the Holding account
     ///  3. `[signer]` Governing Token Owner account
     ///  4. `[signer]` Governing Token Source account authority It should be
@@ -89,7 +89,7 @@ pub enum GovernanceInstruction {
     ///       governing_token_owner]
     ///  6. `[signer]` Payer
     ///  7. `[]` System
-    ///  8. `[]` SPL Token program
+    ///  8. `[]` LPL Token program
     ///  9. `[]` RealmConfig account.
     ///     * PDA seeds: ['realm-config', realm]
     DepositGoverningTokens {
@@ -114,7 +114,7 @@ pub enum GovernanceInstruction {
     ///  4. `[writable]` TokenOwnerRecord account.
     ///     * PDA seeds: ['governance',realm, governing_token_mint,
     ///       governing_token_owner]
-    ///  5. `[]` SPL Token program
+    ///  5. `[]` LPL Token program
     ///  6. `[]` RealmConfig account.
     ///     * PDA seeds: ['realm-config', realm]
     WithdrawGoverningTokens {},
@@ -510,7 +510,7 @@ pub enum GovernanceInstruction {
     ///                   membership
     ///  5. `[]` RealmConfig account.
     ///     * PDA seeds: ['realm-config', realm]
-    ///  6. `[]` SPL Token program
+    ///  6. `[]` LPL Token program
     RevokeGoverningTokens {
         /// The amount to revoke
         #[allow(dead_code)]

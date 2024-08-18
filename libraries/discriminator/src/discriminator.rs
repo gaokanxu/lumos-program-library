@@ -8,9 +8,9 @@ use {
 /// A trait for managing 8-byte discriminators in a slab of bytes
 pub trait SplDiscriminate {
     /// The 8-byte discriminator as a `[u8; 8]`
-    const SPL_DISCRIMINATOR: ArrayDiscriminator;
+    const LPL_DISCRIMINATOR: ArrayDiscriminator;
     /// The 8-byte discriminator as a slice (`&[u8]`)
-    const SPL_DISCRIMINATOR_SLICE: &'static [u8] = Self::SPL_DISCRIMINATOR.as_slice();
+    const LPL_DISCRIMINATOR_SLICE: &'static [u8] = Self::LPL_DISCRIMINATOR.as_slice();
 }
 
 /// Array Discriminator type

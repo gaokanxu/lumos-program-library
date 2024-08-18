@@ -149,7 +149,7 @@ impl ProgramTestBench {
             .unwrap();
     }
 
-    /// Sets spl-token program account (Mint or TokenAccount) authority
+    /// Sets lpl-token program account (Mint or TokenAccount) authority
     pub async fn set_lpl_token_account_authority(
         &mut self,
         account: &Pubkey,

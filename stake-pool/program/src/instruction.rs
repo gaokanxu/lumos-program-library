@@ -412,7 +412,7 @@ pub enum StakePoolInstruction {
         name: String,
         /// Token symbol e.g. stkLUM
         symbol: String,
-        /// URI of the uploaded metadata of the spl-token
+        /// URI of the uploaded metadata of the lpl-token
         uri: String,
     },
     /// Update token metadata for the stake-pool token in the
@@ -428,7 +428,7 @@ pub enum StakePoolInstruction {
         name: String,
         /// Token symbol e.g. stkLUM
         symbol: String,
-        /// URI of the uploaded metadata of the spl-token
+        /// URI of the uploaded metadata of the lpl-token
         uri: String,
     },
 

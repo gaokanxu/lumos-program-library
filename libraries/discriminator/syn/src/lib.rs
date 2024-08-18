@@ -92,7 +92,7 @@ impl From<&SplDiscriminateBuilder> for TokenStream {
         let bytes = get_discriminator_bytes(&builder.hash_input);
         quote! {
             impl #generics lpl_discriminator::discriminator::SplDiscriminate for #ident #generics #where_clause {
-                const SPL_DISCRIMINATOR: lpl_discriminator::discriminator::ArrayDiscriminator
+                const LPL_DISCRIMINATOR: lpl_discriminator::discriminator::ArrayDiscriminator
                     = lpl_discriminator::discriminator::ArrayDiscriminator::new(*#bytes);
             }
         }

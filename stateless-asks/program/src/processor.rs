@@ -24,7 +24,7 @@ use {
 
 pub(crate) mod inline_mpl_token_metadata {
     use {borsh::BorshDeserialize, lumos_program::pubkey::Pubkey};
-    lumos_program::declare_id!("metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s");
+    lumos_program::declare_id!("unknown111111111111111111111111111111111111");
 
     #[derive(Clone, BorshDeserialize, Debug, PartialEq, Eq)]
     pub(crate) struct Metadata {

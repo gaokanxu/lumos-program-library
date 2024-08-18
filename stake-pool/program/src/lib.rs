@@ -157,7 +157,7 @@ pub fn find_ephemeral_stake_program_address(
     )
 }
 
-lumos_program::declare_id!("SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");
 
 #[cfg(test)]
 mod test {

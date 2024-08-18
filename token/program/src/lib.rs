@@ -82,7 +82,7 @@ pub fn try_ui_amount_into_amount(ui_amount: String, decimals: u8) -> Result<u64,
         .map_err(|_| ProgramError::InvalidArgument)
 }
 
-lumos_program::declare_id!("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");
 
 /// Checks that the supplied program ID is the correct one for SPL-token
 pub fn check_program_account(lpl_token_program_id: &Pubkey) -> ProgramResult {

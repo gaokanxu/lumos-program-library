@@ -9,4 +9,4 @@ pub mod state;
 // version
 pub use lumos_program;
 
-lumos_program::declare_id!("namesLPneVptA9Z5rqUDD9tMTWEJwofgaYwp8cawRkX");
+lumos_program::declare_id!("unknown111111111111111111111111111111111111");

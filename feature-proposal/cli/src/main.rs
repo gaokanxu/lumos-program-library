@@ -346,7 +346,7 @@ fn process_propose(
         &feature_proposal_keypair.pubkey().to_string()[..8]
     );
     println!(
-        "    $ lumos-tokens spl-token-balances \
+        "    $ lumos-tokens lpl-token-balances \
                  --mint {} --input-csv {}",
         mint_address, distribution_file
     );
@@ -357,18 +357,18 @@ fn process_propose(
         the proposal by first looking up their token account address:"
     );
     println!(
-        "    $ spl-token accounts --owner ~/validator-keypair.json {}",
+        "    $ lpl-token accounts --owner ~/validator-keypair.json {}",
         mint_address
     );
     println!("and then submit their vote by running:");
     println!(
-        "    $ spl-token transfer --owner ~/validator-keypair.json <TOKEN_ACCOUNT_ADDRESS> ALL {}",
+        "    $ lpl-token transfer --owner ~/validator-keypair.json <TOKEN_ACCOUNT_ADDRESS> ALL {}",
         acceptance_token_address
     );
     println!();
     println!("Periodically the votes must be tallied by running:");
     println!(
-        "  $ spl-feature-proposal tally {}",
+        "  $ lpl-feature-proposal tally {}",
         feature_proposal_keypair.pubkey()
     );
     println!("Tallying is permissionless and may be run by anybody.");

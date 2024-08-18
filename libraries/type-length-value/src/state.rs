@@ -132,7 +132,7 @@ fn get_bytes<V: SplDiscriminate>(
         value_repetition_number: _,
     } = get_indices(
         tlv_data,
-        V::SPL_DISCRIMINATOR,
+        V::LPL_DISCRIMINATOR,
         false,
         Some(repetition_number),
     )?;
@@ -176,7 +176,7 @@ fn get_bytes<V: SplDiscriminate>(
 ///     data: [u8; 8],
 /// }
 /// impl SplDiscriminate for MyPodValue {
-///     const SPL_DISCRIMINATOR: ArrayDiscriminator = ArrayDiscriminator::new([1; ArrayDiscriminator::LENGTH]);
+///     const LPL_DISCRIMINATOR: ArrayDiscriminator = ArrayDiscriminator::new([1; ArrayDiscriminator::LENGTH]);
 /// }
 /// #[repr(C)]
 /// #[derive(Clone, Copy, Debug, Default, PartialEq, Pod, Zeroable)]
@@ -184,7 +184,7 @@ fn get_bytes<V: SplDiscriminate>(
 ///     data: u8,
 /// }
 /// impl SplDiscriminate for MyOtherPodValue {
-///     const SPL_DISCRIMINATOR: ArrayDiscriminator = ArrayDiscriminator::new([2; ArrayDiscriminator::LENGTH]);
+///     const LPL_DISCRIMINATOR: ArrayDiscriminator = ArrayDiscriminator::new([2; ArrayDiscriminator::LENGTH]);
 /// }
 /// let buffer = [
 ///   1, 1, 1, 1, 1, 1, 1, 1, // first type's discriminator
@@ -354,7 +354,7 @@ impl<'data> TlvStateMut<'data> {
             value_repetition_number: _,
         } = get_indices(
             self.data,
-            V::SPL_DISCRIMINATOR,
+            V::LPL_DISCRIMINATOR,
             false,
             Some(repetition_number),
         )?;
@@ -424,7 +424,7 @@ impl<'data> TlvStateMut<'data> {
             value_repetition_number,
         } = get_indices(
             self.data,
-            V::SPL_DISCRIMINATOR,
+            V::LPL_DISCRIMINATOR,
             true,
             if allow_repetition { None } else { Some(0) },
         )?;
@@ -433,7 +433,7 @@ impl<'data> TlvStateMut<'data> {
         if discriminator == ArrayDiscriminator::UNINITIALIZED {
             // write type
             let discriminator_ref = &mut self.data[type_start..length_start];
-            discriminator_ref.copy_from_slice(V::SPL_DISCRIMINATOR.as_ref());
+            discriminator_ref.copy_from_slice(V::LPL_DISCRIMINATOR.as_ref());
             // write length
             let length_ref =
                 pod_from_bytes_mut::<Length>(&mut self.data[length_start..value_start])?;
@@ -480,7 +480,7 @@ impl<'data> TlvStateMut<'data> {
             value_repetition_number: _,
         } = get_indices(
             self.data,
-            V::SPL_DISCRIMINATOR,
+            V::LPL_DISCRIMINATOR,
             false,
             Some(repetition_number),
         )?;
@@ -552,7 +552,7 @@ pub fn realloc_and_pack_variable_len_with_repetition<V: SplDiscriminate + Variab
             length_start,
             value_start,
             value_repetition_number: _,
-        } = get_indices(&data, V::SPL_DISCRIMINATOR, false, Some(repetition_number))?;
+        } = get_indices(&data, V::LPL_DISCRIMINATOR, false, Some(repetition_number))?;
         usize::try_from(*pod_from_bytes::<Length>(&data[length_start..value_start])?)?
     };
     let new_length = value.get_packed_len()?;
@@ -636,7 +636,7 @@ mod test {
         data: [u8; 32],
     }
     impl SplDiscriminate for TestValue {
-        const SPL_DISCRIMINATOR: ArrayDiscriminator =
+        const LPL_DISCRIMINATOR: ArrayDiscriminator =
             ArrayDiscriminator::new([1; ArrayDiscriminator::LENGTH]);
     }
 
@@ -646,7 +646,7 @@ mod test {
         data: [u8; 3],
     }
     impl SplDiscriminate for TestSmallValue {
-        const SPL_DISCRIMINATOR: ArrayDiscriminator =
+        const LPL_DISCRIMINATOR: ArrayDiscriminator =
             ArrayDiscriminator::new([2; ArrayDiscriminator::LENGTH]);
     }
 
@@ -654,7 +654,7 @@ mod test {
     #[derive(Clone, Copy, Debug, Default, PartialEq, Pod, Zeroable)]
     struct TestEmptyValue;
     impl SplDiscriminate for TestEmptyValue {
-        const SPL_DISCRIMINATOR: ArrayDiscriminator =
+        const LPL_DISCRIMINATOR: ArrayDiscriminator =
             ArrayDiscriminator::new([3; ArrayDiscriminator::LENGTH]);
     }
 
@@ -665,7 +665,7 @@ mod test {
     }
     const TEST_NON_ZERO_DEFAULT_DATA: [u8; 5] = [4; 5];
     impl SplDiscriminate for TestNonZeroDefault {
-        const SPL_DISCRIMINATOR: ArrayDiscriminator =
+        const LPL_DISCRIMINATOR: ArrayDiscriminator =
             ArrayDiscriminator::new([4; ArrayDiscriminator::LENGTH]);
     }
     impl Default for TestNonZeroDefault {
@@ -779,7 +779,7 @@ mod test {
         value.data = data;
         assert_eq!(
             &state.get_discriminators().unwrap(),
-            &[TestValue::SPL_DISCRIMINATOR],
+            &[TestValue::LPL_DISCRIMINATOR],
         );
         assert_eq!(&state.get_first_value::<TestValue>().unwrap().data, &data,);
 
@@ -791,7 +791,7 @@ mod test {
 
         // check raw buffer
         let mut expect = vec![];
-        expect.extend_from_slice(TestValue::SPL_DISCRIMINATOR.as_ref());
+        expect.extend_from_slice(TestValue::LPL_DISCRIMINATOR.as_ref());
         expect.extend_from_slice(&u32::try_from(size_of::<TestValue>()).unwrap().to_le_bytes());
         expect.extend_from_slice(&data);
         expect.extend_from_slice(&[0; size_of::<ArrayDiscriminator>()]);
@@ -815,7 +815,7 @@ mod test {
 
         // check raw buffer
         let mut expect = vec![];
-        expect.extend_from_slice(TestValue::SPL_DISCRIMINATOR.as_ref());
+        expect.extend_from_slice(TestValue::LPL_DISCRIMINATOR.as_ref());
         expect.extend_from_slice(&u32::try_from(size_of::<TestValue>()).unwrap().to_le_bytes());
         expect.extend_from_slice(&new_data);
         expect.extend_from_slice(&[0; size_of::<ArrayDiscriminator>()]);
@@ -832,17 +832,17 @@ mod test {
         assert_eq!(
             &state.get_discriminators().unwrap(),
             &[
-                TestValue::SPL_DISCRIMINATOR,
-                TestSmallValue::SPL_DISCRIMINATOR
+                TestValue::LPL_DISCRIMINATOR,
+                TestSmallValue::LPL_DISCRIMINATOR
             ]
         );
 
         // check raw buffer
         let mut expect = vec![];
-        expect.extend_from_slice(TestValue::SPL_DISCRIMINATOR.as_ref());
+        expect.extend_from_slice(TestValue::LPL_DISCRIMINATOR.as_ref());
         expect.extend_from_slice(&u32::try_from(size_of::<TestValue>()).unwrap().to_le_bytes());
         expect.extend_from_slice(&new_data);
-        expect.extend_from_slice(TestSmallValue::SPL_DISCRIMINATOR.as_ref());
+        expect.extend_from_slice(TestSmallValue::LPL_DISCRIMINATOR.as_ref());
         expect.extend_from_slice(
             &u32::try_from(size_of::<TestSmallValue>())
                 .unwrap()
@@ -879,8 +879,8 @@ mod test {
         assert_eq!(
             &state.get_discriminators().unwrap(),
             &[
-                TestValue::SPL_DISCRIMINATOR,
-                TestSmallValue::SPL_DISCRIMINATOR,
+                TestValue::LPL_DISCRIMINATOR,
+                TestSmallValue::LPL_DISCRIMINATOR,
             ]
         );
 
@@ -896,8 +896,8 @@ mod test {
         assert_eq!(
             &state.get_discriminators().unwrap(),
             &[
-                TestSmallValue::SPL_DISCRIMINATOR,
-                TestValue::SPL_DISCRIMINATOR,
+                TestSmallValue::LPL_DISCRIMINATOR,
+                TestValue::LPL_DISCRIMINATOR,
             ]
         );
 
@@ -936,7 +936,7 @@ mod test {
 
         // hack the buffer to look like it was initialized, still fails
         let discriminator_ref = &mut state.data[0..ArrayDiscriminator::LENGTH];
-        discriminator_ref.copy_from_slice(TestValue::SPL_DISCRIMINATOR.as_ref());
+        discriminator_ref.copy_from_slice(TestValue::LPL_DISCRIMINATOR.as_ref());
         state.data[ArrayDiscriminator::LENGTH] = 32;
         let err = state.get_first_value::<TestValue>().unwrap_err();
         assert_eq!(err, ProgramError::InvalidAccountData);
@@ -1121,7 +1121,7 @@ mod test {
         data: String, // test with a variable length type
     }
     impl SplDiscriminate for TestVariableLen {
-        const SPL_DISCRIMINATOR: ArrayDiscriminator =
+        const LPL_DISCRIMINATOR: ArrayDiscriminator =
             ArrayDiscriminator::new([5; ArrayDiscriminator::LENGTH]);
     }
     impl VariableLenPack for TestVariableLen {

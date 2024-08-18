@@ -1,4 +1,4 @@
-//! Crate defining an example program for storing SPL token metadata
+//! Crate defining an example program for storing LPL token metadata
 
 #![allow(clippy::arithmetic_side_effects)]
 #![deny(missing_docs)]

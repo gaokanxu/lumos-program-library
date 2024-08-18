@@ -85,7 +85,7 @@ fn de_escalate_account_meta(account_meta: &mut AccountMeta, account_metas: &[Acc
 /// struct MyInstruction;
 /// impl SplDiscriminate for MyInstruction {
 ///     // Give it a unique discriminator, can also be generated using a hash function
-///     const SPL_DISCRIMINATOR: ArrayDiscriminator = ArrayDiscriminator::new([1; ArrayDiscriminator::LENGTH]);
+///     const LPL_DISCRIMINATOR: ArrayDiscriminator = ArrayDiscriminator::new([1; ArrayDiscriminator::LENGTH]);
 /// }
 ///
 /// // actually put it in the additional required account keys and signer / writable
@@ -382,13 +382,13 @@ mod tests {
 
     pub struct TestInstruction;
     impl SplDiscriminate for TestInstruction {
-        const SPL_DISCRIMINATOR: ArrayDiscriminator =
+        const LPL_DISCRIMINATOR: ArrayDiscriminator =
             ArrayDiscriminator::new([1; ArrayDiscriminator::LENGTH]);
     }
 
     pub struct TestOtherInstruction;
     impl SplDiscriminate for TestOtherInstruction {
-        const SPL_DISCRIMINATOR: ArrayDiscriminator =
+        const LPL_DISCRIMINATOR: ArrayDiscriminator =
             ArrayDiscriminator::new([2; ArrayDiscriminator::LENGTH]);
     }
 

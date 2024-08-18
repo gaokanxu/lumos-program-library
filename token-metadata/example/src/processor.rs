@@ -56,7 +56,7 @@ pub fn process_initialize(
     // scope the mint authority check, in case the mint is in the same account!
     {
         // IMPORTANT: this example metadata program is designed to work with any
-        // program that implements the SPL token interface, so there is no
+        // program that implements the LPL token interface, so there is no
         // ownership check on the mint account.
         let mint_data = mint_info.try_borrow_data()?;
         let mint = StateWithExtensions::<Mint>::unpack(&mint_data)?;

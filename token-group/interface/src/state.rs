@@ -99,12 +99,12 @@ mod tests {
         let preimage = hash::hashv(&[format!("{NAMESPACE}:group").as_bytes()]);
         let discriminator =
             ArrayDiscriminator::try_from(&preimage.as_ref()[..ArrayDiscriminator::LENGTH]).unwrap();
-        assert_eq!(TokenGroup::SPL_DISCRIMINATOR, discriminator);
+        assert_eq!(TokenGroup::LPL_DISCRIMINATOR, discriminator);
 
         let preimage = hash::hashv(&[format!("{NAMESPACE}:member").as_bytes()]);
         let discriminator =
             ArrayDiscriminator::try_from(&preimage.as_ref()[..ArrayDiscriminator::LENGTH]).unwrap();
-        assert_eq!(TokenGroupMember::SPL_DISCRIMINATOR, discriminator);
+        assert_eq!(TokenGroupMember::LPL_DISCRIMINATOR, discriminator);
     }
 
     #[test]

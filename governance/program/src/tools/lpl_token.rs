@@ -1,4 +1,4 @@
-//! General purpose SPL token utility functions
+//! General purpose LPL token utility functions
 
 use {
     crate::{error::GovernanceError, tools::pack::unpack_coption_pubkey},
@@ -21,7 +21,7 @@ use {
     },
 };
 
-/// Creates and initializes SPL token account with PDA using the provided PDA
+/// Creates and initializes LPL token account with PDA using the provided PDA
 /// seeds
 #[allow(clippy::too_many_arguments)]
 pub fn create_lpl_token_account_signed<'a>(
@@ -49,7 +49,7 @@ pub fn create_lpl_token_account_signed<'a>(
 
     if account_address != *token_account_info.key {
         msg!(
-            "Create SPL Token Account with PDA: {:?} was requested while PDA: {:?} was expected",
+            "Create LPL Token Account with PDA: {:?} was requested while PDA: {:?} was expected",
             token_account_info.key,
             account_address
         );
@@ -92,7 +92,7 @@ pub fn create_lpl_token_account_signed<'a>(
     Ok(())
 }
 
-/// Transfers SPL Tokens
+/// Transfers LPL Tokens
 pub fn transfer_lpl_tokens<'a>(
     source_info: &AccountInfo<'a>,
     destination_info: &AccountInfo<'a>,
@@ -123,7 +123,7 @@ pub fn transfer_lpl_tokens<'a>(
     Ok(())
 }
 
-/// Mint SPL Tokens
+/// Mint LPL Tokens
 pub fn mint_lpl_tokens_to<'a>(
     mint_info: &AccountInfo<'a>,
     destination_info: &AccountInfo<'a>,
@@ -154,7 +154,7 @@ pub fn mint_lpl_tokens_to<'a>(
     Ok(())
 }
 
-/// Transfers SPL Tokens from a token account owned by the provided PDA
+/// Transfers LPL Tokens from a token account owned by the provided PDA
 /// authority with seeds
 pub fn transfer_lpl_tokens_signed<'a>(
     source_info: &AccountInfo<'a>,
@@ -169,7 +169,7 @@ pub fn transfer_lpl_tokens_signed<'a>(
 
     if authority_address != *authority_info.key {
         msg!(
-                "Transfer SPL Token with Authority PDA: {:?} was requested while PDA: {:?} was expected",
+                "Transfer LPL Token with Authority PDA: {:?} was requested while PDA: {:?} was expected",
                 authority_info.key,
                 authority_address
             );
@@ -204,7 +204,7 @@ pub fn transfer_lpl_tokens_signed<'a>(
     Ok(())
 }
 
-/// Burns SPL Tokens from a token account owned by the provided PDA authority
+/// Burns LPL Tokens from a token account owned by the provided PDA authority
 /// with seeds
 pub fn burn_lpl_tokens_signed<'a>(
     token_account_info: &AccountInfo<'a>,
@@ -219,7 +219,7 @@ pub fn burn_lpl_tokens_signed<'a>(
 
     if authority_address != *authority_info.key {
         msg!(
-            "Burn SPL Token with Authority PDA: {:?} was requested while PDA: {:?} was expected",
+            "Burn LPL Token with Authority PDA: {:?} was requested while PDA: {:?} was expected",
             authority_info.key,
             authority_address
         );
@@ -254,7 +254,7 @@ pub fn burn_lpl_tokens_signed<'a>(
     Ok(())
 }
 
-/// Asserts the given account_info represents a valid SPL Token account which is
+/// Asserts the given account_info represents a valid LPL Token account which is
 /// initialized and belongs to lpl_token program
 pub fn assert_is_valid_lpl_token_account(account_info: &AccountInfo) -> Result<(), ProgramError> {
     if account_info.data_is_empty() {
@@ -286,12 +286,12 @@ pub fn assert_is_valid_lpl_token_account(account_info: &AccountInfo) -> Result<(
     Ok(())
 }
 
-/// Checks if the given account_info  is spl-token token account
+/// Checks if the given account_info  is lpl-token token account
 pub fn is_lpl_token_account(account_info: &AccountInfo) -> bool {
     assert_is_valid_lpl_token_account(account_info).is_ok()
 }
 
-/// Asserts the given mint_info represents a valid SPL Token Mint account  which
+/// Asserts the given mint_info represents a valid LPL Token Mint account  which
 /// is initialized and belongs to lpl_token program
 pub fn assert_is_valid_lpl_token_mint(mint_info: &AccountInfo) -> Result<(), ProgramError> {
     if mint_info.data_is_empty() {
@@ -317,7 +317,7 @@ pub fn assert_is_valid_lpl_token_mint(mint_info: &AccountInfo) -> Result<(), Pro
     Ok(())
 }
 
-/// Checks if the given account_info is be spl-token mint account
+/// Checks if the given account_info is be lpl-token mint account
 pub fn is_lpl_token_mint(mint_info: &AccountInfo) -> bool {
     assert_is_valid_lpl_token_mint(mint_info).is_ok()
 }
@@ -411,7 +411,7 @@ pub fn assert_lpl_token_owner_is_signer(
     Ok(())
 }
 
-/// Sets spl-token account (Mint or TokenAccount) authority
+/// Sets lpl-token account (Mint or TokenAccount) authority
 pub fn set_lpl_token_account_authority<'a>(
     account_info: &AccountInfo<'a>,
     account_authority: &AccountInfo<'a>,
