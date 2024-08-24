@@ -8,7 +8,7 @@ simple stake delegation bots.
 * More reference bot implementations
 * Add bindings for all stake pool instructions, see `TODO`s in `stake_pool/instructions.py`
 * Finish bindings for vote and stake program
-* Upstream vote and stake program bindings to https://github.com/michaelhly/solana-py
+* Upstream vote and stake program bindings to https://github.com/michaelhly/lumos-py
 
 ## Development
 
@@ -29,7 +29,7 @@ $ pip install -r requirements.txt
 $ pip install -r optional-requirements.txt
 ```
 
-4. Install the Solana tool suite: https://docs.solana.com/cli/install-solana-cli-tools
+4. Install the Lumos tool suite: https://docs.lumos.com/cli/install-lumos-cli-tools
 
 ### Test
 
@@ -39,7 +39,7 @@ Testing through `pytest`:
 $ python3 -m pytest
 ```
 
-Note: the tests all run against a `solana-test-validator` with short epochs of 64
+Note: the tests all run against a `lumos-test-validator` with short epochs of 64
 slots (25.6 seconds exactly). Some tests wait for epoch changes, so they take
 time, roughly 90 seconds total at the time of this writing.
 

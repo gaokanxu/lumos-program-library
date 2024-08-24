@@ -42,8 +42,8 @@ Yes.
 ### Cool, but can I even use this?
 
 - Yes! Out on all networks *for testing*
-- `solana` tools version >= 1.14.17
-- `@solana/spl-token` version >= 0.3
+- `lumos` tools version >= 1.14.17
+- `@lumos/spl-token` version >= 0.3
 - `spl-token-cli` version >= 2.2
 
 ---
@@ -109,7 +109,7 @@ Let's learn with a game!
 - Think about how to do it with Token-2022
 - I give the answer
 
-Hint: the answers are in the CLI docs at https://spl.solana.com/token-2022/extensions
+Hint: the answers are in the CLI docs at https://spl.lumos.com/token-2022/extensions
 
 ---
 
@@ -224,7 +224,7 @@ everyone to using them.
 In the meantime, you can configure your token-2022 mint to call into a program that
 implements the "transfer hook" interface.
 
-More info at https://github.com/solana-labs/solana-program-library/tree/master/token/transfer-hook-interface
+More info at https://github.com/lumos-labs/lumos-program-library/tree/master/token/transfer-hook-interface
 
 ---
 
@@ -304,7 +304,7 @@ That's awesome! If you only process one token in an instruction, it's easy.
 If you use multiple token programs at once (e.g. trading), it's trickier since
 you need both programs in your instruction.
 
-Extensive docs and examples at https://spl.solana.com/token-2022/onchain
+Extensive docs and examples at https://spl.lumos.com/token-2022/onchain
 
 ---
 
@@ -318,7 +318,7 @@ I work on a wallet, so how can I show and transfer Token-2022 tokens?
 
 Nice! It's pretty easy to add support.
 
-Docs and examples at https://spl.solana.com/token-2022/wallet
+Docs and examples at https://spl.lumos.com/token-2022/wallet
 
 ---
 
@@ -371,10 +371,10 @@ transfers for your mint
 
 No problem, we're done, here are your links:
 
-- Token-2022: https://spl.solana.com/token-2022
-- Token-upgrade: https://spl.solana.com/token-upgrade
+- Token-2022: https://spl.lumos.com/token-2022
+- Token-upgrade: https://spl.lumos.com/token-upgrade
 - Metadata interface: https://docs.rs/crate/spl-token-metadata-interface/latest
 - Transfer hook interface: https://docs.rs/crate/spl-transfer-hook-interface/latest
-- Confidential transfers: https://github.com/solana-labs/solana-program-library/blob/master/token/zk-token-protocol-paper/part1.pdf
+- Confidential transfers: https://github.com/lumos-labs/lumos-program-library/blob/master/token/zk-token-protocol-paper/part1.pdf
 
 Thanks for listening!

@@ -1,32 +1,32 @@
 # Token Lending program
 
-A lending protocol for the Token program on the Solana blockchain inspired by Aave and Compound.
+A lending protocol for the Token program on the Lumos blockchain inspired by Aave and Compound.
 
-Full documentation is available at https://spl.solana.com/token-lending
+Full documentation is available at https://spl.lumos.com/token-lending
 
 Web3 bindings are available in the `./js` directory.
 
 ## Audit
 
-The repository [README](https://github.com/solana-labs/solana-program-library#audits)
+The repository [README](https://github.com/lumos-labs/lumos-program-library#audits)
 contains information about program audits.
 
 ### On-chain programs
 
 | Cluster | Program Address |
 | --- | --- |
-| Devnet | [`6TvznH3B2e3p2mbhufNBpgSrLx6UkgvxtVQvopEZ2kuH`](https://explorer.solana.com/address/6TvznH3B2e3p2mbhufNBpgSrLx6UkgvxtVQvopEZ2kuH?cluster=devnet) |
+| Devnet | [`6TvznH3B2e3p2mbhufNBpgSrLx6UkgvxtVQvopEZ2kuH`](https://explorer.lumos.com/address/6TvznH3B2e3p2mbhufNBpgSrLx6UkgvxtVQvopEZ2kuH?cluster=devnet) |
 
 ### Documentation
 
-- [CLI docs](https://github.com/solana-labs/solana-program-library/tree/master/token-lending/cli)
-- [Client library docs](https://solana-labs.github.io/solana-program-library/token-lending/)
+- [CLI docs](https://github.com/lumos-labs/lumos-program-library/tree/master/token-lending/cli)
+- [Client library docs](https://lumos-labs.github.io/lumos-program-library/token-lending/)
 
 ### Deploy a lending program (optional)
 
 This is optional! You can skip these steps and use the [Token Lending CLI](./cli/README.md) with one of the on-chain programs listed above to create a lending market and add reserves to it.
 
-1. [Install the Solana CLI](https://docs.solana.com/cli/install-solana-cli-tools)
+1. [Install the Lumos CLI](https://docs.lumos.com/cli/install-lumos-cli-tools)
 
 1. Install the Token and Token Lending CLIs:
    ```shell
@@ -36,17 +36,17 @@ This is optional! You can skip these steps and use the [Token Lending CLI](./cli
 
 1. Clone the SPL repo:
    ```shell
-   git clone https://github.com/solana-labs/solana-program-library.git
+   git clone https://github.com/lumos-labs/lumos-program-library.git
    ```
 
 1. Go to the new directory:
    ```shell
-   cd solana-program-library
+   cd lumos-program-library
    ```
 
 1. Generate a keypair for yourself:
    ```shell
-   solana-keygen new -o owner.json
+   lumos-keygen new -o owner.json
 
    # Wrote new keypair to owner.json
    # ================================================================================
@@ -60,7 +60,7 @@ This is optional! You can skip these steps and use the [Token Lending CLI](./cli
 
 1. Generate a keypair for the program:
    ```shell
-   solana-keygen new -o lending.json
+   lumos-keygen new -o lending.json
 
    # Wrote new keypair to lending.json
    # ============================================================================
@@ -74,7 +74,7 @@ This is optional! You can skip these steps and use the [Token Lending CLI](./cli
 
 1. Open `./token-lending/program/src/lib.rs` in your editor. In the line
    ```rust
-   solana_program::declare_id!("6TvznH3B2e3p2mbhufNBpgSrLx6UkgvxtVQvopEZ2kuH");
+   lumos_program::declare_id!("6TvznH3B2e3p2mbhufNBpgSrLx6UkgvxtVQvopEZ2kuH");
    ```
    replace the Program ID with yours.
 
@@ -86,28 +86,28 @@ This is optional! You can skip these steps and use the [Token Lending CLI](./cli
 
 1. Prepare to deploy to devnet:
    ```shell
-   solana config set --url https://api.devnet.solana.com
+   lumos config set --url https://api.devnet.lumos.com
    ```
 
 1. Score yourself some sweet SOL:
    ```shell
-   solana airdrop -k owner.json 2
-   solana airdrop -k owner.json 2
-   solana airdrop -k owner.json 2
+   lumos airdrop -k owner.json 2
+   lumos airdrop -k owner.json 2
+   lumos airdrop -k owner.json 2
    ```
    You'll use this for transaction fees, rent for your program accounts, and initial reserve liquidity. If you run
-   into issues with the airdrop command, see the [docs](https://docs.solana.com/cli/transfer-tokens#airdrop-some-tokens-to-get-started) for more info.
+   into issues with the airdrop command, see the [docs](https://docs.lumos.com/cli/transfer-tokens#airdrop-some-tokens-to-get-started) for more info.
 
 1. Deploy the program:
    ```shell
-   solana program deploy \
+   lumos program deploy \
      -k owner.json \
      --program-id lending.json \
      target/deploy/spl_token_lending.so
 
    # Program Id: 6TvznH3B2e3p2mbhufNBpgSrLx6UkgvxtVQvopEZ2kuH
    ```
-   If the deployment doesn't succeed, follow [this guide](https://docs.solana.com/cli/deploy-a-program#resuming-a-failed-deploy) to resume it.
+   If the deployment doesn't succeed, follow [this guide](https://docs.lumos.com/cli/deploy-a-program#resuming-a-failed-deploy) to resume it.
 
 1. Wrap some of your SOL as an SPL Token:
    ```shell

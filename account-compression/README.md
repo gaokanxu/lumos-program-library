@@ -18,7 +18,7 @@ A _**rough draft**_ of the whitepaper for SPL ConcurrentMerkleTree's can be foun
 
 ## Typescript SDK
 
-`@solana/spl-account-compression` is generated using Metaplex Foundation's [Solita](https://github.com/metaplex-foundation/solita/). 
+`@lumos/spl-account-compression` is generated using Metaplex Foundation's [Solita](https://github.com/metaplex-foundation/solita/). 
 
 ## Testing and Development
 
@@ -26,11 +26,11 @@ Testing contracts locally requires the SDK to be built.
 
 With a built local SDK, the test suite can be ran with:
 
-1. `pnpm link @solana/spl-account-compression`
+1. `pnpm link @lumos/spl-account-compression`
 2. `pnpm i`
 3. `pnpm test`
 
 ## Audit
 
-The repository [README](https://github.com/solana-labs/solana-program-library#audits)
+The repository [README](https://github.com/lumos-labs/lumos-program-library#audits)
 contains information about program audits.

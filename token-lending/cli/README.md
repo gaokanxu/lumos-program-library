@@ -2,7 +2,7 @@
 
 A basic command line interface for initializing lending markets and reserves for SPL Token Lending.
 
-See https://spl.solana.com/token-lending for more details
+See https://spl.lumos.com/token-lending for more details
 
 ## Install the CLI
 ```shell

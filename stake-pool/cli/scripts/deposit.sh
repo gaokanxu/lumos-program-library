@@ -11,7 +11,7 @@ sol_amount=$3
 create_keypair () {
   if test ! -f "$1"
   then
-    solana-keygen new --no-passphrase -s -o "$1"
+    lumos-keygen new --no-passphrase -s -o "$1"
   fi
 }
 
@@ -22,7 +22,7 @@ create_user_stakes () {
   while read -r validator
   do
     create_keypair "$keys_dir/stake_$validator".json
-    solana create-stake-account "$keys_dir/stake_$validator.json" "$sol_amount" --withdraw-authority "$authority" --stake-authority "$authority"
+    lumos create-stake-account "$keys_dir/stake_$validator.json" "$sol_amount" --withdraw-authority "$authority" --stake-authority "$authority"
   done < "$validator_list"
 }
 
@@ -31,7 +31,7 @@ delegate_user_stakes () {
   authority=$2
   while read -r validator
   do
-    solana delegate-stake --force "$keys_dir/stake_$validator.json" "$validator" --stake-authority "$authority"
+    lumos delegate-stake --force "$keys_dir/stake_$validator.json" "$validator" --stake-authority "$authority"
   done < "$validator_list"
 }
 
@@ -41,13 +41,13 @@ deposit_stakes () {
   authority=$3
   while read -r validator
   do
-    stake=$(solana-keygen pubkey "$keys_dir/stake_$validator.json")
+    stake=$(lumos-keygen pubkey "$keys_dir/stake_$validator.json")
     $spl_stake_pool deposit-stake "$stake_pool_pubkey" "$stake" --withdraw-authority "$authority"
   done < "$validator_list"
 }
 
 keys_dir=keys
-stake_pool_pubkey=$(solana-keygen pubkey "$stake_pool_keyfile")
+stake_pool_pubkey=$(lumos-keygen pubkey "$stake_pool_keyfile")
 
 spl_stake_pool=spl-stake-pool
 # Uncomment to use a locally build CLI

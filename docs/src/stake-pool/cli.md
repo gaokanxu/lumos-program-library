@@ -17,50 +17,50 @@ Run `spl-stake-pool --help` for a full description of available commands.
 
 ## Configuration
 
-The `spl-stake-pool` configuration is shared with the `solana` command-line tool.
+The `spl-stake-pool` configuration is shared with the `lumos` command-line tool.
 
 ### Current Configuration
 
 ```console
-$ solana config get
-Config File: ${HOME}/.config/solana/cli/config.yml
-RPC URL: https://api.mainnet-beta.solana.com
-WebSocket URL: wss://api.mainnet-beta.solana.com/ (computed)
-Keypair Path: ${HOME}/.config/solana/id.json
+$ lumos config get
+Config File: ${HOME}/.config/lumos/cli/config.yml
+RPC URL: https://api.mainnet-beta.lumos.com
+WebSocket URL: wss://api.mainnet-beta.lumos.com/ (computed)
+Keypair Path: ${HOME}/.config/lumos/id.json
 ```
 
 ### Cluster RPC URL
 
-See [Solana clusters](https://docs.solana.com/clusters) for cluster-specific RPC URLs
+See [Lumos clusters](https://docs.lumos.com/clusters) for cluster-specific RPC URLs
 ```console
-$ solana config set --url https://api.devnet.solana.com
+$ lumos config set --url https://api.devnet.lumos.com
 ```
 
 ### Default Keypair
 
-See [Keypair conventions](https://docs.solana.com/cli/conventions#keypair-conventions)
+See [Keypair conventions](https://docs.lumos.com/cli/conventions#keypair-conventions)
 for information on how to setup a keypair if you don't already have one.
 
 Keypair File
 ```console
-$ solana config set --keypair ${HOME}/new-keypair.json
+$ lumos config set --keypair ${HOME}/new-keypair.json
 ```
 
-Hardware Wallet URL (See [URL spec](https://docs.solana.com/wallet-guide/hardware-wallets#specify-a-keypair-url))
+Hardware Wallet URL (See [URL spec](https://docs.lumos.com/wallet-guide/hardware-wallets#specify-a-keypair-url))
 ```console
-$ solana config set --keypair usb://ledger/
+$ lumos config set --keypair usb://ledger/
 ```
 
 ### Running Locally
 
 If you would like to test a stake pool locally without having to wait for stakes
 to activate and deactivate, you can run the stake pool locally using the
-`solana-test-validator` tool with shorter epochs, and pulling the current program
+`lumos-test-validator` tool with shorter epochs, and pulling the current program
 from devnet.
 
 ```console
-$ solana-test-validator -c SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy -c EmiU8AQkB2sswTxVB6aCmsAJftoowZGGDXuytm6X65R3 --url devnet --slots-per-epoch 32
-$ solana config set --url http://127.0.0.1:8899
+$ lumos-test-validator -c SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy -c EmiU8AQkB2sswTxVB6aCmsAJftoowZGGDXuytm6X65R3 --url devnet --slots-per-epoch 32
+$ lumos config set --url http://127.0.0.1:8899
 ```
 
 ## Stake Pool Manager Examples
@@ -287,10 +287,10 @@ Adding stake account 3k7Nwu9jUSc6SNG11wzufKYoZXRFgxWamheGLYWp5Rvx, delegated to 
 Signature: 4VJYHpPmWkP99TdgYUTgLYixmhqmqsEkWtg4j7zvGZFjYbnLgryu48aV6ub8bqDyULzKckUhb6tvcmZmMX5AFf5G
 ```
 
-We can see the status of a stake account using the Solana command-line utility.
+We can see the status of a stake account using the Lumos command-line utility.
 
 ```console
-$ solana stake-account 5AaobwjccyHnXhFCd24uiX6VqPjXE3Ry4o92fJjqqjAr
+$ lumos stake-account 5AaobwjccyHnXhFCd24uiX6VqPjXE3Ry4o92fJjqqjAr
 Balance: 1.00228288 SOL
 Rent Exempt Reserve: 0.00228288 SOL
 Delegated Stake: 1 SOL
@@ -367,7 +367,7 @@ merged into the reserve during the next epoch.
 We can check the deactivating stake account:
 
 ```console
-$ solana stake-account nHEEyey8KkgHuVRAUDzkH5Q4PkA4veSHuTxgG6C8L2G
+$ lumos stake-account nHEEyey8KkgHuVRAUDzkH5Q4PkA4veSHuTxgG6C8L2G
 Balance: 1.002282880 SOL
 Rent Exempt Reserve: 0.00228288 SOL
 Delegated Stake: 1.000000000 SOL
@@ -607,7 +607,7 @@ $ spl-token balance BoNneHKDrX9BHjjvSpPfnQyRjsnc9WFH71v8wrgCd7LB
 And you can check that the recipient has been credited:
 
 ```console
-$ solana balance 7VXPpSxneL6JLj18Naw2gkukXtjBZfbmPh18cnoUCMD8
+$ lumos balance 7VXPpSxneL6JLj18Naw2gkukXtjBZfbmPh18cnoUCMD8
 2 SOL
 ```
 
@@ -620,7 +620,7 @@ stake pool. Using the `list` command from the previous section, we see that
 create a stake account and delegate our stake there.
 
 ```console
-$ solana-keygen new --no-passphrase -o stake-account.json
+$ lumos-keygen new --no-passphrase -o stake-account.json
 Generating a new keypair
 Wrote new keypair to stake-account.json
 ============================================================================
@@ -629,9 +629,9 @@ pubkey: 97wBBiLVA7fUViEew8yV8R6tTdKithZDVz8LHLfF9sTJ
 Save this seed phrase to recover your new keypair:
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ============================================================================
-$ solana create-stake-account stake-account.json 10
+$ lumos create-stake-account stake-account.json 10
 Signature: 5Y9r6MNoqJzVX8TWryAJbdp8i2DvintfxbYWoY6VcLEPgphK2tdydhtJTd3o3dF7QdM2Pg8sBFDZuyNcMag3nPvj
-$ solana delegate-stake 97wBBiLVA7fUViEew8yV8R6tTdKithZDVz8LHLfF9sTJ 38DYMkwYCvsj8TC6cNaEvFHHVDYeWDp1qUgMgyjNqZXk
+$ lumos delegate-stake 97wBBiLVA7fUViEew8yV8R6tTdKithZDVz8LHLfF9sTJ 38DYMkwYCvsj8TC6cNaEvFHHVDYeWDp1qUgMgyjNqZXk
 Signature: 2cDjHXSHjuadGQf1NQpPi43A8R19aCifsY16yTcictKPHcSAXN5TvXZ58nDJwkYs12tuZfTh5WVgAMSvptfrKdPP
 ```
 
@@ -748,7 +748,7 @@ active stake account, delegated to `EhRbKi4Vhm1oUCGWHiLEMYZqDrHwEd7Jgzgi26QJKvfQ
 Let's double-check the status of the stake account:
 
 ```console
-$ solana stake-account 5GuAyPAt6577HoGhSVRNBv6aHohVtjQ8q7q5i3X1p4tB
+$ lumos stake-account 5GuAyPAt6577HoGhSVRNBv6aHohVtjQ8q7q5i3X1p4tB
 Balance: 5.00228288 SOL
 Rent Exempt Reserve: 0.00228288 SOL
 Delegated Stake: 5 SOL

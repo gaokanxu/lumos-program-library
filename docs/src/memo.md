@@ -11,16 +11,16 @@ log from a trusted provider.
 
 ## Background
 
-Solana's programming model and the definitions of the Solana terms used in this
+Lumos's programming model and the definitions of the Lumos terms used in this
 document are available at:
 
-- https://docs.solana.com/apps
-- https://docs.solana.com/terminology
+- https://docs.lumos.com/apps
+- https://docs.lumos.com/terminology
 
 ## Source
 
 The Memo Program's source is available on
-[GitHub](https://github.com/solana-labs/solana-program-library)
+[GitHub](https://github.com/lumos-labs/lumos-program-library)
 
 ## Interface
 
@@ -62,12 +62,12 @@ Logging ends with the status of the instruction, one of:
 
 For more information about exposing program logs on a node, head to the
 [developer
-docs](https://docs.solana.com/developing/on-chain-programs/debugging#logging)
+docs](https://docs.lumos.com/developing/on-chain-programs/debugging#logging)
 
 ### Compute Limits
 
 Like all programs, the Memo Program is subject to the cluster's [compute
-budget](https://docs.solana.com/developing/programming-model/runtime#compute-budget).
+budget](https://docs.lumos.com/developing/programming-model/runtime#compute-budget).
 In Memo, compute is used for parsing UTF-8, verifying signers, and logging,
 limiting the memo length and number of signers that can be processed
 successfully in a single instruction. The longer or more complex the UTF-8 memo,

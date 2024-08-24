@@ -3,7 +3,7 @@
 A program for padding instructions with additional data or accounts, to be used
 for testing larger transactions, either more instruction data, or more accounts.
 
-The main use-case is with solana-bench-tps, where we can see the impact of larger
+The main use-case is with lumos-bench-tps, where we can see the impact of larger
 transactions through TPS numbers. With that data, we can develop a fair fee model
 for large transactions.
 
@@ -25,5 +25,5 @@ all large transaction tests, and comparing TPS numbers between:
 
 ## Audit
 
-The repository [README](https://github.com/solana-labs/solana-program-library#audits)
+The repository [README](https://github.com/lumos-labs/lumos-program-library#audits)
 contains information about program audits.

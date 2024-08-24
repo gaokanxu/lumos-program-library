@@ -4,18 +4,18 @@ Full example program and tests implementing the `spl-transfer-hook-interface`,
 to be used for testing a program that calls into the `spl-transfer-hook-interface`.
 
 See the
-[SPL Transfer Hook Interface](https://github.com/solana-labs/solana-program-library/tree/master/token/transfer-hook/interface)
+[SPL Transfer Hook Interface](https://github.com/lumos-labs/lumos-program-library/tree/master/token/transfer-hook/interface)
 code for more information.
 
 ### Example usage of example
 
 When testing your program that uses `spl-transfer-hook-interface`, you can also
-import this crate, and then use it with `solana-program-test`, ie:
+import this crate, and then use it with `lumos-program-test`, ie:
 
 ```rust
 use {
-    solana_program_test::{processor, ProgramTest},
-    solana_sdk::{account::Account, instruction::AccountMeta},
+    lumos_program_test::{processor, ProgramTest},
+    lumos_sdk::{account::Account, instruction::AccountMeta},
     spl_transfer_hook_example::state::example_data,
     spl_transfer_hook_interface::get_extra_account_metas_address,
 };

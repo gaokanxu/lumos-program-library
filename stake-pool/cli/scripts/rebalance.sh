@@ -22,6 +22,6 @@ increase_stakes () {
   done < "$validator_list"
 }
 
-stake_pool_pubkey=$(solana-keygen pubkey "$stake_pool_keyfile")
+stake_pool_pubkey=$(lumos-keygen pubkey "$stake_pool_keyfile")
 echo "Increasing amount delegated to each validator in stake pool"
 increase_stakes "$stake_pool_pubkey" "$validator_list" "$sol_amount"

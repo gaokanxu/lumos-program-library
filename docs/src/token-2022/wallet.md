@@ -24,7 +24,7 @@ when trying to target the Token program with Token-2022 accounts.
 
 ## Prerequisites
 
-When testing locally, be sure to use at least `solana-test-validator` version
+When testing locally, be sure to use at least `lumos-test-validator` version
 1.14.17, which includes the Token-2022 program by default. This comes bundled
 with version 2.3.0 of the `spl-token` CLI, which also supports Token-2022.
 
@@ -73,7 +73,7 @@ Signature: 43rsisVeLKjBCgLruwTFJXtGTBgwyfpLjwm44dY2YLHH9WJaazEvkyYGdq6omqs4thRfC
 It's also helpful for your test wallet to have some SOL, so be sure to transfer some:
 
 ```console
-$ solana -ul transfer <TEST_WALLET_ADDRESS> 10 --allow-unfunded-recipient
+$ lumos -ul transfer <TEST_WALLET_ADDRESS> 10 --allow-unfunded-recipient
 Signature: 5A4MbdMTgGiV7hzLesKbzmrPSCvYPG15e1bg3d7dViqMaPbZrdJweKSuY1BQAfq245RMMYeGudxyKQYkgKoGT1Ui
 ```
 
@@ -81,17 +81,17 @@ Finally, you can save all of these accounts in a directory to be re-used for tes
 
 ```console
 $ mkdir test-accounts
-$ solana -ul account --output-file test-accounts/token-account.json --output json 4L45ZpFS6dqTyLMofmQZ9yuTqYvQrfCJfWL2xAjd5WDW
+$ lumos -ul account --output-file test-accounts/token-account.json --output json 4L45ZpFS6dqTyLMofmQZ9yuTqYvQrfCJfWL2xAjd5WDW
 ... output truncated ...
-$ solana -ul account --output-file test-accounts/mint.json --output json E5SUrbnx7bMBp3bRdMWNCFS3FXp5VpvFDdNFp8rjrMLM
+$ lumos -ul account --output-file test-accounts/mint.json --output json E5SUrbnx7bMBp3bRdMWNCFS3FXp5VpvFDdNFp8rjrMLM
 ... output truncated ...
-$ solana -ul account --output-file test-accounts/wallet.json --output json <TEST_WALLET_ADDRESS>
+$ lumos -ul account --output-file test-accounts/wallet.json --output json <TEST_WALLET_ADDRESS>
 ```
 
 This way, whenever you want to restart your test validator, you can simply run:
 
 ```console
-$ solana-test-validator -r --account-dir test-accounts
+$ lumos-test-validator -r --account-dir test-accounts
 ```
 
 ## Structure of this Guide
@@ -111,7 +111,7 @@ to fetch the accounts.
 For Token-2022, you simply need to add one more call to get the additional accounts:
 
 ```typescript
-import { Connection, PublicKey } from '@solana/web3.js';
+import { Connection, PublicKey } from '@lumos/web3.js';
 
 const TOKEN_PROGRAM_ID = new PublicKey(
   'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'
@@ -154,8 +154,8 @@ If we store the program id for each token account, then we can re-use that
 information when we need to transfer or burn.
 
 ```typescript
-import { Connection, PublicKey } from '@solana/web3.js';
-import { createTransferInstruction } from '@solana/spl-token';
+import { Connection, PublicKey } from '@lumos/web3.js';
+import { createTransferInstruction } from '@lumos/spl-token';
 
 const TOKEN_PROGRAM_ID = new PublicKey(
   'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'
@@ -200,7 +200,7 @@ Before creating an instruction, you can fetch the mint, source account, or
 destination account from the network, and pull out its `owner` field.
 
 ```typescript
-import { Connection, PublicKey } from '@solana/web3.js';
+import { Connection, PublicKey } from '@lumos/web3.js';
 
 const connection = new Connection('http://127.0.0.1:8899', 'confirmed');
 const accountPublicKey = new PublicKey('11111111111111111111111111111111'); // insert your account key here
@@ -218,7 +218,7 @@ program id. Currently, most implementations hardcode the token program id.
 Instead, you must add the program id as a parameter:
 
 ```typescript
-import { PublicKey } from '@solana/web3.js';
+import { PublicKey } from '@lumos/web3.js';
 
 const ASSOCIATED_TOKEN_PROGRAM_ID = new PublicKey(
   "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
@@ -240,8 +240,8 @@ If you're creating associated token accounts, you'll also need to pass the
 token program id, which currently defaults to `TOKEN_PROGRAM_ID`:
 
 ```typescript
-import { Connection, PublicKey } from '@solana/web3.js';
-import { createAssociatedTokenAccountInstruction } from '@solana/spl-token';
+import { Connection, PublicKey } from '@lumos/web3.js';
+import { createAssociatedTokenAccountInstruction } from '@lumos/spl-token';
 
 const tokenProgramId = new PublicKey(
   'TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb'

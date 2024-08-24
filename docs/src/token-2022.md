@@ -2,7 +2,7 @@
 title: Token-2022 Program
 ---
 
-A token program on the Solana blockchain, defining a common implementation for
+A token program on the Lumos blockchain, defining a common implementation for
 fungible and non-fungible tokens.
 
 The Token-2022 Program, also known as Token Extensions, is a superset of the
@@ -15,14 +15,14 @@ functionality provided by the [Token Program](token.mdx).
 ## Motivation
 
 The existing Token Program serves most needs for fungible and non-fungible tokens
-on Solana through a simple set of interfaces and structures. It has been rigorously
+on Lumos through a simple set of interfaces and structures. It has been rigorously
 audited since its initial deployment in 2020.
 
-As more developers have come to Solana with new ideas, however, they have forked the
+As more developers have come to Lumos with new ideas, however, they have forked the
 Token Program to add functionality. It's simple to change and deploy the program,
 but it's difficult to achieve adoption across the ecosystem.
 
-Solana's programming model requires programs to be included in transactions
+Lumos's programming model requires programs to be included in transactions
 along with accounts, making it complicated to craft transactions involving
 multiple token programs.
 
@@ -81,7 +81,7 @@ is written after the end of the `Account` in Token, which is the byte at index
 `165`.  This means it is always possible to differentiate mints and accounts.
 
 You can read more about how this is done at the
-[source code](https://github.com/solana-labs/solana-program-library/blob/master/token/program-2022/src/extension/mod.rs).
+[source code](https://github.com/lumos-labs/lumos-program-library/blob/master/token/program-2022/src/extension/mod.rs).
 
 Mint extensions currently include:
 
@@ -114,7 +114,7 @@ program, that creates new token accounts for either Token or Token-2022.
 
 To get started with Token-2022:
 
-- [Install the Solana Tools](https://docs.solana.com/cli/install-solana-cli-tools)
+- [Install the Lumos Tools](https://docs.lumos.com/cli/install-lumos-cli-tools)
 - [Project Status](token-2022/status.md)
 - [Extension Guide](token-2022/extensions.mdx)
 - [Wallet Guide](token-2022/wallet.md)
@@ -127,7 +127,7 @@ The Token functionality will always apply to Token-2022.
 ## Source
 
 The Token-2022 Program's source is available on
-[GitHub](https://github.com/solana-labs/solana-program-library/tree/master/token/program-2022).
+[GitHub](https://github.com/lumos-labs/lumos-program-library/tree/master/token/program-2022).
 
 For information about the types and instructions, the Rust docs are available at
 [docs.rs](https://docs.rs/spl-token-2022/latest/spl_token_2022/).
@@ -140,20 +140,20 @@ here as they are completed.
 Here are the completed audits as of 13 December 2023:
 
 * Halborn
-    - Review commit hash [`c3137a`](https://github.com/solana-labs/solana-program-library/tree/c3137af9dfa2cc0873cc84c4418dea88ac542965/token/program-2022)
-    - Final report https://github.com/solana-labs/security-audits/blob/master/spl/HalbornToken2022Audit-2022-07-27.pdf
+    - Review commit hash [`c3137a`](https://github.com/lumos-labs/lumos-program-library/tree/c3137af9dfa2cc0873cc84c4418dea88ac542965/token/program-2022)
+    - Final report https://github.com/lumos-labs/security-audits/blob/master/spl/HalbornToken2022Audit-2022-07-27.pdf
 * Zellic
-    - Review commit hash [`54695b`](https://github.com/solana-labs/solana-program-library/tree/54695b233484722458b18c0e26ebb8334f98422c/token/program-2022)
-    - Final report https://github.com/solana-labs/security-audits/blob/master/spl/ZellicToken2022Audit-2022-12-05.pdf
+    - Review commit hash [`54695b`](https://github.com/lumos-labs/lumos-program-library/tree/54695b233484722458b18c0e26ebb8334f98422c/token/program-2022)
+    - Final report https://github.com/lumos-labs/security-audits/blob/master/spl/ZellicToken2022Audit-2022-12-05.pdf
 * Trail of Bits
-    - Review commit hash [`50abad`](https://github.com/solana-labs/solana-program-library/tree/50abadd819df2e406567d6eca31c213264c1c7cd/token/program-2022)
-    - Final report https://github.com/solana-labs/security-audits/blob/master/spl/TrailOfBitsToken2022Audit-2023-02-10.pdf
+    - Review commit hash [`50abad`](https://github.com/lumos-labs/lumos-program-library/tree/50abadd819df2e406567d6eca31c213264c1c7cd/token/program-2022)
+    - Final report https://github.com/lumos-labs/security-audits/blob/master/spl/TrailOfBitsToken2022Audit-2023-02-10.pdf
 * NCC Group
-    - Review commit hash [`4e43aa`](https://github.com/solana-labs/solana/tree/4e43aa6c18e6bb4d98559f80eb004de18bc6b418/zk-token-sdk)
-    - Final report https://github.com/solana-labs/security-audits/blob/master/spl/NCCToken2022Audit-2023-04-05.pdf
+    - Review commit hash [`4e43aa`](https://github.com/lumos-labs/lumos/tree/4e43aa6c18e6bb4d98559f80eb004de18bc6b418/zk-token-sdk)
+    - Final report https://github.com/lumos-labs/security-audits/blob/master/spl/NCCToken2022Audit-2023-04-05.pdf
 * OtterSec
-    - Review commit hash [`e92413`](https://github.com/solana-labs/solana-program-library/tree/e924132d65ba0896249fb4983f6f97caff15721a)
-    - Final report https://github.com/solana-labs/security-audits/blob/master/spl/OtterSecToken2022Audit-2023-11-03.pdf
+    - Review commit hash [`e92413`](https://github.com/lumos-labs/lumos-program-library/tree/e924132d65ba0896249fb4983f6f97caff15721a)
+    - Final report https://github.com/lumos-labs/security-audits/blob/master/spl/OtterSecToken2022Audit-2023-11-03.pdf
 * OtterSec (ZK Token SDK)
-    - Review commit hash [`9e703f8`](https://github.com/solana-labs/solana/tree/9e703f8/zk-token-sdk)
-    - Final report https://github.com/solana-labs/security-audits/blob/master/spl/OtterSecZkTokenSdkAudit-2023-11-04.pdf
+    - Review commit hash [`9e703f8`](https://github.com/lumos-labs/lumos/tree/9e703f8/zk-token-sdk)
+    - Final report https://github.com/lumos-labs/security-audits/blob/master/spl/OtterSecZkTokenSdkAudit-2023-11-04.pdf

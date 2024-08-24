@@ -2,7 +2,7 @@
 
 set -ex
 cd "$(dirname "$0")/.."
-source ./ci/solana-version.sh install
+source ./ci/lumos-version.sh install
 
 cd single-pool/js
 pnpm install

@@ -10,7 +10,7 @@ an equal number of new tokens from an escrow account controlled by the program.
 
 ## Audit
 
-The repository [README](https://github.com/solana-labs/solana-program-library#audits)
+The repository [README](https://github.com/lumos-labs/lumos-program-library#audits)
 contains information about program audits.
 
 ## Background
@@ -47,7 +47,7 @@ functionality to their mint.
 ## Source
 
 The Token Upgrade Program's source is available on
-[GitHub](https://github.com/solana-labs/solana-program-library)
+[GitHub](https://github.com/lumos-labs/lumos-program-library)
 
 ## Interface
 
@@ -68,7 +68,7 @@ Run `spl-token-upgrade --help` for a full description of available commands.
 
 ### Configuration
 
-The `spl-token-upgrade` configuration is shared with the `solana` command-line tool.
+The `spl-token-upgrade` configuration is shared with the `lumos` command-line tool.
 
 ## Token Upgrade Process
 

@@ -10,7 +10,7 @@ into a TLV entry in an account, you can do the following:
 
 ```rust
 use {
-    solana_program::{account_info::AccountInfo, instruction::{AccountMeta, Instruction}, pubkey::Pubkey},
+    lumos_program::{account_info::AccountInfo, instruction::{AccountMeta, Instruction}, pubkey::Pubkey},
     spl_discriminator::{ArrayDiscriminator, SplDiscriminate},
     spl_tlv_account_resolution::{
         account::ExtraAccountMeta,
@@ -96,7 +96,7 @@ provided to initialize directly from a set of given accounts.
 
 ## Motivation
 
-The Solana account model presents unique challenges for program interfaces.
+The Lumos account model presents unique challenges for program interfaces.
 Since it's impossible to load additional accounts on-chain, if a program requires
 additional accounts to properly implement an instruction, there's no clear way
 for clients to fetch these accounts.
@@ -192,5 +192,5 @@ In the program implementation, this instruction writes the additional accounts
 into return data, making it easy for on-chain and off-chain clients to consume.
 
 See the
-[relevant sRFC](https://forum.solana.com/t/srfc-00010-additional-accounts-request-transfer-spec/122)
+[relevant sRFC](https://forum.lumos.com/t/srfc-00010-additional-accounts-request-transfer-spec/122)
 for more information about the dynamic approach.

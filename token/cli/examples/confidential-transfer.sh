@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
 # Set whichever network you would like to test with
-# solana config set -ul
+# lumos config set -ul
 
 program_id="TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
 
 echo "Setup keypairs"
-solana-keygen new -o confidential-mint.json --no-bip39-passphrase
-solana-keygen new -o confidential-source.json --no-bip39-passphrase
-solana-keygen new -o confidential-destination.json --no-bip39-passphrase
-mint_pubkey=$(solana-keygen pubkey "confidential-mint.json")
-source_pubkey=$(solana-keygen pubkey "confidential-source.json")
-destination_pubkey=$(solana-keygen pubkey "confidential-destination.json")
+lumos-keygen new -o confidential-mint.json --no-bip39-passphrase
+lumos-keygen new -o confidential-source.json --no-bip39-passphrase
+lumos-keygen new -o confidential-destination.json --no-bip39-passphrase
+mint_pubkey=$(lumos-keygen pubkey "confidential-mint.json")
+source_pubkey=$(lumos-keygen pubkey "confidential-source.json")
+destination_pubkey=$(lumos-keygen pubkey "confidential-destination.json")
 
 set -ex
 echo "Initializing mint"

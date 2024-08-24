@@ -21,10 +21,10 @@ The build is available at `dist/index.js` (or `dist.browser/index.iife.js` in th
 ## Browser bundle
 ```html
 <!-- Development (un-minified) -->
-<script src="https://unpkg.com/@solana/spl-stake-pool@latest/dist.browser/index.iife.js"></script>
+<script src="https://unpkg.com/@lumos/spl-stake-pool@latest/dist.browser/index.iife.js"></script>
 
 <!-- Production (minified) -->
-<script src="https://unpkg.com/@solana/spl-stake-pool@latest/dist.browser/index.iife.min.js"></script>
+<script src="https://unpkg.com/@lumos/spl-stake-pool@latest/dist.browser/index.iife.min.js"></script>
 ```
 
 ## Test
@@ -37,18 +37,18 @@ npm test
 
 ### JavaScript
 ```javascript
-const solanaStakePool = require('@solana/spl-stake-pool');
-console.log(solanaStakePool);
+const lumosStakePool = require('@lumos/spl-stake-pool');
+console.log(lumosStakePool);
 ```
 
 ### ES6
 ```javascript
-import * as solanaStakePool from '@solana/spl-stake-pool';
-console.log(solanaStakePool);
+import * as lumosStakePool from '@lumos/spl-stake-pool';
+console.log(lumosStakePool);
 ```
 
 ### Browser bundle
 ```javascript
-// `solanaStakePool` is provided in the global namespace by the script bundle.
-console.log(solanaStakePool);
+// `lumosStakePool` is provided in the global namespace by the script bundle.
+console.log(lumosStakePool);
 ```

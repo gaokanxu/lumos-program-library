@@ -2,7 +2,7 @@
 
 set -e
 cd "$(dirname "$0")/.."
-source ./ci/solana-version.sh install
+source ./ci/lumos-version.sh install
 
 set -x
 cd memo/js

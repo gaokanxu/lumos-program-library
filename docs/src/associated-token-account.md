@@ -29,16 +29,16 @@ general.
 
 ## Background
 
-Solana's programming model and the definitions of the Solana terms used in this
+Lumos's programming model and the definitions of the Lumos terms used in this
 document are available at:
 
-- https://docs.solana.com/apps
-- https://docs.solana.com/terminology
+- https://docs.lumos.com/apps
+- https://docs.lumos.com/terminology
 
 ## Source
 
 The Associated Token Account Program's source is available on
-[GitHub](https://github.com/solana-labs/solana-program-library).
+[GitHub](https://github.com/lumos-labs/lumos-program-library).
 
 
 ## Interface
@@ -57,8 +57,8 @@ Rust function may be used by clients to derive the wallet's associated token add
 
 The associated account address can be derived in TypeScript with:
 ```ts
-import { PublicKey } from '@solana/web3.js';
-import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
+import { PublicKey } from '@lumos/web3.js';
+import { TOKEN_PROGRAM_ID } from '@lumos/spl-token';
 
 const SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID: PublicKey = new PublicKey(
   'ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL',

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #
-# Patches the SPL crates for developing against a local solana monorepo
+# Patches the SPL crates for developing against a local lumos monorepo
 #
 
-solana_dir=$1
-if [[ -z $solana_dir ]]; then
-  echo "Usage: $0 <path-to-solana-monorepo>"
+lumos_dir=$1
+if [[ -z $lumos_dir ]]; then
+  echo "Usage: $0 <path-to-lumos-monorepo>"
   exit 1
 fi
 
@@ -13,116 +13,116 @@ workspace_crates=(
   Cargo.toml
 )
 
-if [[ ! -r "$solana_dir"/scripts/read-cargo-variable.sh ]]; then
-  echo "$solana_dir is not a path to the solana monorepo"
+if [[ ! -r "$lumos_dir"/scripts/read-cargo-variable.sh ]]; then
+  echo "$lumos_dir is not a path to the lumos monorepo"
   exit 1
 fi
 
 set -e
 
-solana_dir=$(cd "$solana_dir" && pwd)
+lumos_dir=$(cd "$lumos_dir" && pwd)
 cd "$(dirname "$0")"
 project_root=$(pwd)
 
-source "$solana_dir"/scripts/read-cargo-variable.sh
+source "$lumos_dir"/scripts/read-cargo-variable.sh
 
 # The toolchain file only exists in version >= 1.15
-toolchain_file="$solana_dir"/rust-toolchain.toml
+toolchain_file="$lumos_dir"/rust-toolchain.toml
 if [[ -f "$toolchain_file" ]]; then
   cp "$toolchain_file" .
 fi
 
-# only add exclude rule when solana root is under spl root
-if echo "$solana_dir" | grep "^$project_root" > /dev/null; then
-  echo "Excluding $solana_dir from workspace"
+# only add exclude rule when lumos root is under spl root
+if echo "$lumos_dir" | grep "^$project_root" > /dev/null; then
+  echo "Excluding $lumos_dir from workspace"
   echo
   for crate in "${workspace_crates[@]}"; do
-    if grep -q "exclude.*$solana_dir" "$crate"; then
+    if grep -q "exclude.*$lumos_dir" "$crate"; then
       echo "$crate is already patched"
     else
-      sed -i'' "$crate" -e "/exclude/a \ \ \"$solana_dir\","
+      sed -i'' "$crate" -e "/exclude/a \ \ \"$lumos_dir\","
     fi
   done
 fi
 
 # get version from Cargo.toml first. if it is empty, get it from other places.
-solana_ver="$(readCargoVariable version "$solana_dir"/Cargo.toml)"
-solana_ver=${solana_ver:-$(readCargoVariable version "$solana_dir"/sdk/Cargo.toml)}
+lumos_ver="$(readCargoVariable version "$lumos_dir"/Cargo.toml)"
+lumos_ver=${lumos_ver:-$(readCargoVariable version "$lumos_dir"/sdk/Cargo.toml)}
 
 crates_map=()
-crates_map+=("solana-account-decoder account-decoder")
-crates_map+=("solana-banks-client banks-client")
-crates_map+=("solana-banks-interface banks-interface")
-crates_map+=("solana-banks-server banks-server")
-crates_map+=("solana-bloom bloom")
-crates_map+=("solana-bucket-map bucket_map")
-crates_map+=("solana-clap-utils clap-utils")
-crates_map+=("solana-clap-v3-utils clap-v3-utils")
-crates_map+=("solana-cli-config cli-config")
-crates_map+=("solana-cli-output cli-output")
-crates_map+=("solana-client client")
-crates_map+=("solana-connection-cache connection-cache")
-crates_map+=("solana-core core")
-crates_map+=("solana-entry entry")
-crates_map+=("solana-faucet faucet")
-crates_map+=("solana-frozen-abi frozen-abi")
-crates_map+=("solana-frozen-abi-macro frozen-abi/macro")
+crates_map+=("lumos-account-decoder account-decoder")
+crates_map+=("lumos-banks-client banks-client")
+crates_map+=("lumos-banks-interface banks-interface")
+crates_map+=("lumos-banks-server banks-server")
+crates_map+=("lumos-bloom bloom")
+crates_map+=("lumos-bucket-map bucket_map")
+crates_map+=("lumos-clap-utils clap-utils")
+crates_map+=("lumos-clap-v3-utils clap-v3-utils")
+crates_map+=("lumos-cli-config cli-config")
+crates_map+=("lumos-cli-output cli-output")
+crates_map+=("lumos-client client")
+crates_map+=("lumos-connection-cache connection-cache")
+crates_map+=("lumos-core core")
+crates_map+=("lumos-entry entry")
+crates_map+=("lumos-faucet faucet")
+crates_map+=("lumos-frozen-abi frozen-abi")
+crates_map+=("lumos-frozen-abi-macro frozen-abi/macro")
 crates_map+=("agave-geyser-plugin-interface geyser-plugin-interface")
-crates_map+=("solana-geyser-plugin-manager geyser-plugin-manager")
-crates_map+=("solana-gossip gossip")
-crates_map+=("solana-ledger ledger")
-crates_map+=("solana-logger logger")
-crates_map+=("solana-measure measure")
-crates_map+=("solana-merkle-tree merkle-tree")
-crates_map+=("solana-metrics metrics")
-crates_map+=("solana-net-utils net-utils")
-crates_map+=("solana-perf perf")
-crates_map+=("solana-poh poh")
-crates_map+=("solana-program-runtime program-runtime")
-crates_map+=("solana-program-test program-test")
-crates_map+=("solana-address-lookup-table-program programs/address-lookup-table")
-crates_map+=("solana-bpf-loader-program programs/bpf_loader")
-crates_map+=("solana-compute-budget-program programs/compute-budget")
-crates_map+=("solana-config-program programs/config")
-crates_map+=("solana-stake-program programs/stake")
-crates_map+=("solana-vote-program programs/vote")
-crates_map+=("solana-zk-token-proof-program programs/zk-token-proof")
-crates_map+=("solana-pubsub-client pubsub-client")
-crates_map+=("solana-quic-client quic-client")
-crates_map+=("solana-rayon-threadlimit rayon-threadlimit")
-crates_map+=("solana-remote-wallet remote-wallet")
-crates_map+=("solana-rpc rpc")
-crates_map+=("solana-rpc-client rpc-client")
-crates_map+=("solana-rpc-client-api rpc-client-api")
-crates_map+=("solana-rpc-client-nonce-utils rpc-client-nonce-utils")
-crates_map+=("solana-runtime runtime")
-crates_map+=("solana-sdk sdk")
-crates_map+=("solana-sdk-macro sdk/macro")
-crates_map+=("solana-program sdk/program")
-crates_map+=("solana-send-transaction-service send-transaction-service")
-crates_map+=("solana-storage-bigtable storage-bigtable")
-crates_map+=("solana-storage-proto storage-proto")
-crates_map+=("solana-streamer streamer")
-crates_map+=("solana-test-validator test-validator")
-crates_map+=("solana-thin-client thin-client")
-crates_map+=("solana-tpu-client tpu-client")
-crates_map+=("solana-transaction-status transaction-status")
-crates_map+=("solana-udp-client udp-client")
-crates_map+=("solana-version version")
-crates_map+=("solana-zk-token-sdk zk-token-sdk")
-crates_map+=("solana-zk-sdk zk-sdk")
-crates_map+=("solana-curve25519 curves/curve25519")
+crates_map+=("lumos-geyser-plugin-manager geyser-plugin-manager")
+crates_map+=("lumos-gossip gossip")
+crates_map+=("lumos-ledger ledger")
+crates_map+=("lumos-logger logger")
+crates_map+=("lumos-measure measure")
+crates_map+=("lumos-merkle-tree merkle-tree")
+crates_map+=("lumos-metrics metrics")
+crates_map+=("lumos-net-utils net-utils")
+crates_map+=("lumos-perf perf")
+crates_map+=("lumos-poh poh")
+crates_map+=("lumos-program-runtime program-runtime")
+crates_map+=("lumos-program-test program-test")
+crates_map+=("lumos-address-lookup-table-program programs/address-lookup-table")
+crates_map+=("lumos-bpf-loader-program programs/bpf_loader")
+crates_map+=("lumos-compute-budget-program programs/compute-budget")
+crates_map+=("lumos-config-program programs/config")
+crates_map+=("lumos-stake-program programs/stake")
+crates_map+=("lumos-vote-program programs/vote")
+crates_map+=("lumos-zk-token-proof-program programs/zk-token-proof")
+crates_map+=("lumos-pubsub-client pubsub-client")
+crates_map+=("lumos-quic-client quic-client")
+crates_map+=("lumos-rayon-threadlimit rayon-threadlimit")
+crates_map+=("lumos-remote-wallet remote-wallet")
+crates_map+=("lumos-rpc rpc")
+crates_map+=("lumos-rpc-client rpc-client")
+crates_map+=("lumos-rpc-client-api rpc-client-api")
+crates_map+=("lumos-rpc-client-nonce-utils rpc-client-nonce-utils")
+crates_map+=("lumos-runtime runtime")
+crates_map+=("lumos-sdk sdk")
+crates_map+=("lumos-sdk-macro sdk/macro")
+crates_map+=("lumos-program sdk/program")
+crates_map+=("lumos-send-transaction-service send-transaction-service")
+crates_map+=("lumos-storage-bigtable storage-bigtable")
+crates_map+=("lumos-storage-proto storage-proto")
+crates_map+=("lumos-streamer streamer")
+crates_map+=("lumos-test-validator test-validator")
+crates_map+=("lumos-thin-client thin-client")
+crates_map+=("lumos-tpu-client tpu-client")
+crates_map+=("lumos-transaction-status transaction-status")
+crates_map+=("lumos-udp-client udp-client")
+crates_map+=("lumos-version version")
+crates_map+=("lumos-zk-token-sdk zk-token-sdk")
+crates_map+=("lumos-zk-sdk zk-sdk")
+crates_map+=("lumos-curve25519 curves/curve25519")
 
 patch_crates=()
 for map_entry in "${crates_map[@]}"; do
   read -r crate_name crate_path <<<"$map_entry"
-  full_path="$solana_dir/$crate_path"
+  full_path="$lumos_dir/$crate_path"
   if [[ -r "$full_path/Cargo.toml" ]]; then
     patch_crates+=("$crate_name = { path = \"$full_path\" }")
   fi
 done
 
-echo "Patching in $solana_ver from $solana_dir"
+echo "Patching in $lumos_ver from $lumos_dir"
 echo
 for crate in "${workspace_crates[@]}"; do
   if grep -q "# The following entries are auto-generated by $0" "$crate"; then
@@ -138,4 +138,4 @@ PATCH
   fi
 done
 
-./update-solana-dependencies.sh "$solana_ver"
+./update-lumos-dependencies.sh "$lumos_ver"

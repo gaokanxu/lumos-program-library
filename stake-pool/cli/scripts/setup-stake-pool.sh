@@ -47,7 +47,7 @@ mkdir -p $keys_dir
 create_keypair () {
   if test ! -f "$1"
   then
-    solana-keygen new --no-passphrase -s -o "$1"
+    lumos-keygen new --no-passphrase -s -o "$1"
   fi
 }
 
@@ -71,7 +71,7 @@ $spl_stake_pool \
   --reserve-keypair "$reserve_keyfile"
 
 set +ex
-stake_pool_pubkey=$(solana-keygen pubkey "$stake_pool_keyfile")
+stake_pool_pubkey=$(lumos-keygen pubkey "$stake_pool_keyfile")
 set -ex
 
 echo "Creating token metadata"

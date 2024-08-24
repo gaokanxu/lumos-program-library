@@ -7,16 +7,16 @@ the provided account's data
 
 ## Background
 
-Solana's programming model and the definitions of the Solana terms used in this
+Lumos's programming model and the definitions of the Lumos terms used in this
 document are available at:
 
-- https://docs.solana.com/apps
-- https://docs.solana.com/terminology
+- https://docs.lumos.com/apps
+- https://docs.lumos.com/terminology
 
 ## Source
 
 The Shared memory Program's source is available on
-[GitHub](https://github.com/solana-labs/solana-program-library)
+[GitHub](https://github.com/lumos-labs/lumos-program-library)
 
 ## Interface
 

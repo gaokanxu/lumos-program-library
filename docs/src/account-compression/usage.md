@@ -7,13 +7,13 @@ title: Example usage of the TS SDK
 ## Install
 
 ```shell
-npm install --save @solana/spl-account-compression @solana/web3.js
+npm install --save @lumos/spl-account-compression @lumos/web3.js
 ```
 
 __OR__
 
 ```shell
-yarn add @solana/spl-account-compression @solana/web3.js
+yarn add @lumos/spl-account-compression @lumos/web3.js
 ```
 
 ### Examples
@@ -107,6 +107,6 @@ await sendAndConfirmTransaction(connection, tx, [payer]);
 
 Here are some examples using account compression in the wild:
 
-* Solana Program Library [tests](https://github.com/solana-labs/solana-program-library/tree/master/account-compression/sdk/tests)
+* Lumos Program Library [tests](https://github.com/lumos-labs/lumos-program-library/tree/master/account-compression/sdk/tests)
 
 * Metaplex Program Library Compressed NFT [tests](https://github.com/metaplex-foundation/metaplex-program-library/tree/master/bubblegum/js/tests)

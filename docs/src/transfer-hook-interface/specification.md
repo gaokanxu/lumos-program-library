@@ -38,7 +38,7 @@ The next two instructions of the interface deal with these configurations.
 
 This instruction does exactly what the name implies: it intializes the
 validation account to store a list of extra required
-[`AccountMeta`](https://docs.rs/solana-program/latest/solana_program/instruction/struct.AccountMeta.html)
+[`AccountMeta`](https://docs.rs/lumos-program/latest/lumos_program/instruction/struct.AccountMeta.html)
 configurations for the `Execute` instruction.
 
 - **Discriminator:** First 8 bytes of the hash of the string literal  

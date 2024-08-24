@@ -13,12 +13,12 @@ cargo_audit_ignores=(
   # tokio: vulnerability affecting named pipes on Windows
   #
   # Exception is a stopgap to unblock CI
-  # https://github.com/solana-labs/solana/issues/29586
+  # https://github.com/lumos-labs/lumos/issues/29586
   --ignore RUSTSEC-2023-0001
 
   # ed25519-dalek: Double Public Key Signing Function Oracle Attack
   #
-  # Remove once SPL upgrades to Solana v1.17 or greater
+  # Remove once SPL upgrades to Lumos v1.17 or greater
   --ignore RUSTSEC-2022-0093
 
   # webpki: CPU denial of service in certificate path building
@@ -28,7 +28,7 @@ cargo_audit_ignores=(
 
   # tungstenite
   #
-  # Remove once SPL upgrades to Solana v1.17 or greater
+  # Remove once SPL upgrades to Lumos v1.17 or greater
   --ignore RUSTSEC-2023-0065
 
   # curve25519-dalek

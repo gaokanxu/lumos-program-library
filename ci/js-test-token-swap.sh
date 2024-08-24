@@ -2,7 +2,7 @@
 
 set -ex
 cd "$(dirname "$0")/.."
-source ./ci/solana-version.sh install
+source ./ci/lumos-version.sh install
 
 pnpm install
 pnpm build

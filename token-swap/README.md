@@ -1,20 +1,20 @@
 # Token Swap Program
 
-A Uniswap-like exchange for the Token program on the Solana blockchain.
+A Uniswap-like exchange for the Token program on the Lumos blockchain.
 
-Full documentation is available at https://spl.solana.com/token-swap
+Full documentation is available at https://spl.lumos.com/token-swap
 
 JavaScript bindings are available in the `./js` directory.
 
 ## Audit
 
-The repository [README](https://github.com/solana-labs/solana-program-library#audits)
+The repository [README](https://github.com/lumos-labs/lumos-program-library#audits)
 contains information about program audits.
 
 ## Building master
 
 To build a development version of the Token Swap program, you can use the normal
-build command for Solana programs:
+build command for Lumos programs:
 
 ```sh
 cargo build-sbf
@@ -58,8 +58,8 @@ exact problem.
 ### Integration tests
 
 You can test the JavaScript bindings and on-chain interactions using
-`solana-test-validator`, included in the Solana Tool Suite.  See the
-[CLI installation instructions](https://docs.solana.com/cli/install-solana-cli-tools).
+`lumos-test-validator`, included in the Lumos Tool Suite.  See the
+[CLI installation instructions](https://docs.lumos.com/cli/install-lumos-cli-tools).
 
 From `./js`, install the required modules:
 

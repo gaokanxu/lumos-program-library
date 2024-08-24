@@ -18,7 +18,7 @@ Coming soon!
 
 ### Motivation
 
-Token creators on Solana need all sorts of functionality for their token-metadata,
+Token creators on Lumos need all sorts of functionality for their token-metadata,
 and the Metaplex Token-Metadata program has been the one place for all metadata
 needs, leading to a feature-rich program that still might not serve all needs.
 
@@ -104,4 +104,4 @@ interface in their program can freely add any other data fields in a different
 TLV entry.
 
 You can find more information about TLV / type-length-value structures at the
-[spl-type-length-value repo](https://github.com/solana-labs/solana-program-library/tree/master/libraries/type-length-value).
+[spl-type-length-value repo](https://github.com/lumos-labs/lumos-program-library/tree/master/libraries/type-length-value).

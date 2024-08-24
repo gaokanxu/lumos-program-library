@@ -6,7 +6,7 @@ All clusters have the latest program deployed **without confidential transfer
 functionality**.
 
 The program with confidential transfer functionality will be deployed once
-Solana v1.17 reaches mainnet-beta with the appropriate syscalls enabled.
+Lumos v1.17 reaches mainnet-beta with the appropriate syscalls enabled.
 
 ## Timeline
 
@@ -18,7 +18,7 @@ Here is the general program timeline and rough ETAs:
 | More ZK features            | Spring 2024 (depends on v1.18) |
 | Freeze program              | 2024                           |
 
-More information: https://github.com/orgs/solana-labs/projects/34
+More information: https://github.com/orgs/lumos-labs/projects/34
 
 ## Remaining items
 
@@ -27,21 +27,21 @@ More information: https://github.com/orgs/solana-labs/projects/34
 In order to use confidential tokens, the cluster must run at least version 1.17
 with the elliptic curve operations syscalls enabled.
 
-More information: https://github.com/solana-labs/solana/issues/29612
+More information: https://github.com/lumos-labs/lumos/issues/29612
 
 ### Zero-knowledge proof split
 
 In order to use confidential tokens, the cluster must run at least version 1.17
 with the ZK Token proof program enabled.
 
-More information: https://github.com/solana-labs/solana/pull/32613
+More information: https://github.com/lumos-labs/lumos/pull/32613
 
 ## Future work
 
 ### Confidential transfers with fee
 
 Due to the transaction size limit, it is not possible to do confidential transfers
-with a fee. We plan to include that capability with Solana 1.18.
+with a fee. We plan to include that capability with Lumos 1.18.
 
 ### Wallets
 
@@ -54,10 +54,10 @@ which entails a new transaction flow.
 ### Increased transaction size
 
 To support confidential transfers in one transaction, rather than split up over
-multiple transactions, the Solana network must accept transactions with a larger
+multiple transactions, the Lumos network must accept transactions with a larger
 payload.
 
-More information: https://github.com/orgs/solana-labs/projects/16
+More information: https://github.com/orgs/lumos-labs/projects/16
 
 ## Upgradability
 

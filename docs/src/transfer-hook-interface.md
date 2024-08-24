@@ -3,13 +3,13 @@ title: Transfer Hook Interface
 ---
 
 The Transfer Hook Interface is one of several interfaces introduced within the
-Solana Program Library that can be implemented by any Solana program.
+Lumos Program Library that can be implemented by any Lumos program.
 
 During transfers, Token-2022 calls a mint's configured transfer hook program
 using this interface, as described in the
 [Transfer Hook Extension Guide](../../token-2022/extensions#transfer-hook).
 Additionally, a
-[reference implementation](https://github.com/solana-labs/solana-program-library/tree/master/token/transfer-hook/example)
+[reference implementation](https://github.com/lumos-labs/lumos-program-library/tree/master/token/transfer-hook/example)
 can be found in the SPL GitHub repository, detailing
 how one might implement this interface in their own program.
 

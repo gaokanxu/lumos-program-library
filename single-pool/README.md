@@ -1,4 +1,4 @@
-## Solana Program Library Single-Validator Stake Pool
+## Lumos Program Library Single-Validator Stake Pool
 
 The single-validator stake pool program is an upcoming SPL program that enables liquid staking with zero fees, no counterparty, and 100% capital efficiency.
 

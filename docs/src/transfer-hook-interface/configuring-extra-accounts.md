@@ -41,9 +41,9 @@ byte slab. Because the entries are fixed-length, we can use a custom "slice"
 structure which divides the length by the fixed-length to determine the number
 of entries.
 
-This custom slice structure is called a `PodSlice` and is part of the Solana
+This custom slice structure is called a `PodSlice` and is part of the Lumos
 Program Library's
-[Pod](https://github.com/solana-labs/solana-program-library/tree/master/libraries/pod)
+[Pod](https://github.com/lumos-labs/lumos-program-library/tree/master/libraries/pod)
 library. The Pod library provides a handful of fixed-length types that
 implement the `bytemuck`
 [`Pod`](https://docs.rs/bytemuck/latest/bytemuck/trait.Pod.html) trait, as well
@@ -51,7 +51,7 @@ as the `PodSlice`.
 
 Another SPL library
 useful for Type-Length-Value encoded data is
-[Type-Length-Value](https://github.com/solana-labs/solana-program-library/tree/master/libraries/type-length-value)
+[Type-Length-Value](https://github.com/lumos-labs/lumos-program-library/tree/master/libraries/type-length-value)
 which is used extensively to manage TLV-encoded data structures.
 
 ### Dynamic Account Resolution
@@ -62,7 +62,7 @@ required accounts you've specified in the validation account.
 
 These additional accounts must be _resolved_, and another library used to pull off
 the resolution of additional accounts for transfer hooks is
-[TLV Account Resolution](https://github.com/solana-labs/solana-program-library/tree/master/libraries/tlv-account-resolution).
+[TLV Account Resolution](https://github.com/lumos-labs/lumos-program-library/tree/master/libraries/tlv-account-resolution).
 
 Using the TLV Account Resolution library, transfer hook programs can empower
 **dynamic account resolution** of additional required accounts. This means that
@@ -72,19 +72,19 @@ validation account's data.
 
 In fact, the Transfer Hook interface offers helpers that perform this account
 resolution in the
-[onchain](https://github.com/solana-labs/solana-program-library/blob/master/token/transfer-hook/interface/src/onchain.rs)
+[onchain](https://github.com/lumos-labs/lumos-program-library/blob/master/token/transfer-hook/interface/src/onchain.rs)
 and
-[offchain](https://github.com/solana-labs/solana-program-library/blob/master/token/transfer-hook/interface/src/offchain.rs)
+[offchain](https://github.com/lumos-labs/lumos-program-library/blob/master/token/transfer-hook/interface/src/offchain.rs)
 modules of the Transfer Hook interface crate.
 
 The account resolution is powered by the way configurations for additional
-accounts are stored, and how they can be used to derive actual Solana addresses
+accounts are stored, and how they can be used to derive actual Lumos addresses
 and roles (signer, writeable, etc.) for accounts.
 
 ### The `ExtraAccountMeta` Struct
 
 A member of the TLV Account Resolution library, the
-[`ExtraAccountMeta`](https://github.com/solana-labs/solana-program-library/blob/65a92e6e0a4346920582d9b3893cacafd85bb017/libraries/tlv-account-resolution/src/account.rs#L75)
+[`ExtraAccountMeta`](https://github.com/lumos-labs/lumos-program-library/blob/65a92e6e0a4346920582d9b3893cacafd85bb017/libraries/tlv-account-resolution/src/account.rs#L75)
 struct allows account configurations to be serialized into a fixed-length data
 format of length 35 bytes.
 
@@ -130,7 +130,7 @@ Well, you don't. Instead, you tell the account resolution functionality _where_
 to find the seeds you need.
 
 To do this, the transfer hook program can use the
-[`Seed`](https://github.com/solana-labs/solana-program-library/blob/65a92e6e0a4346920582d9b3893cacafd85bb017/libraries/tlv-account-resolution/src/seeds.rs#L38)
+[`Seed`](https://github.com/lumos-labs/lumos-program-library/blob/65a92e6e0a4346920582d9b3893cacafd85bb017/libraries/tlv-account-resolution/src/seeds.rs#L38)
 enum to describe their seeds and where to find them. With the exception of
 literals, these seed configurations comprise only a small handful of bytes.
 
